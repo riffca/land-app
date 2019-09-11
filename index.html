@@ -1,22 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;display=swap" rel="stylesheet">
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<title>Document</title>
-	<style type="text/css">
-	body {
-	margin: 0;
+	<style type="text/css">@charset "UTF-8";
+.red-natural-color {
+	color: #ce251b;
+	fill: #ce251b;
 }
-		#app {
-		font-family: 'Avenir', Helvetica, Arial, sans-serif;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		text-align: center;
-		color: #2c3e50;
-	}
-</style>
-<style type="text/css">
 
+/* BEGIN Light */
+@font-face {
+	font-family: Roboto;
+	src: url("/fonts/Light/Roboto-Light.woff2?v=2.137") format("woff2"), url("/fonts/Light/Roboto-Light.woff?v=2.137") format("woff");
+	font-weight: 300;
+	font-style: normal;
+}
+
+/* END Light */
+/* BEGIN Regular */
+@font-face {
+	font-family: Roboto;
+	src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: Roboto;
+	src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* END Regular */
+/* BEGIN Medium */
+@font-face {
+	font-family: Roboto;
+	src: url("/fonts/Medium/Roboto-Medium.woff2?v=2.137") format("woff2"), url("/fonts/Medium/Roboto-Medium.woff?v=2.137") format("woff");
+	font-weight: 500;
+	font-style: normal;
+}
+
+/* END Medium */
+/* BEGIN Medium Italic */
+@font-face {
+	font-family: Roboto;
+	src: url("/fonts/MediumItalic/Roboto-MediumItalic.woff2?v=2.137") format("woff2"), url("/fonts/MediumItalic/Roboto-MediumItalic.woff?v=2.137") format("woff");
+	font-weight: 500;
+	font-style: italic;
+}
+
+/* END Medium Italic */
+/* BEGIN Bold */
+@font-face {
+	font-family: Roboto;
+	src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: Roboto;
+	src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
+	font-weight: bold;
+	font-style: normal;
+}
+
+/* END Bold */
+body:before {
+	display: none;
+}
+body:before {
+	background-color: #FCF8E3;
+	border-bottom: 1px solid #FBEED5;
+	border-left: 1px solid #FBEED5;
+	color: #C09853;
+	font: small-caption;
+	padding: 3px 6px;
+	pointer-events: none;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 100;
+}
+@media (min-width: 20em) {
+body:before {
+			content: "mobile \2265   320px (20em)";
+}
+}
+@media (min-width: 46.25em) {
+body:before {
+			content: "tablet \2265   740px (46.25em)";
+}
+}
+@media (min-width: 61.25em) {
+body:before {
+			content: "desktop \2265   980px (61.25em)";
+}
+}
+@media (min-width: 81.25em) {
+body:before {
+			content: "wide \2265   1300px (81.25em)";
+}
+}
+@media (min-width: 85.4375em) {
+body:before {
+			content: "stopVWBreakpoint \2265   1367px (85.4375em)";
+}
+}
+.alingn-center {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+			-ms-flex-align: center;
+					align-items: center;
+}
+.flex-row {
+	width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: start;
+			-ms-flex-align: start;
+					align-items: flex-start;
+}
+.flex-container {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+@media (min-width: 85.4375em) {
+.showUntilBreakpoint {
+		display: none;
+}
+}
+.absolute-node {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.no-left {
+	padding-left: 0 !important;
+}
+.hide-border {
+	border: 0 !important;
+}
+.no-right {
+	padding-right: 0 !important;
+}
+.input-margins {
+	margin-top: 0.3125vw;
+	margin-bottom: 0.3125vw;
+}
+.dashed-border {
+	border-bottom: 0.0625vw dashed !important;
+}
+.input-sample {
+	word-break: break-word;
+	display: inline-block;
+	width: 11.0625vw;
+	padding-bottom: 0.25vw;
+	font-size: 0.875vw;
+	outline: none;
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 0.0625vw solid #2c2c2c;
+	padding-top: 0.5vw;
+	margin-top: 0.3125vw;
+	margin-bottom: 0.3125vw;
+}
+@media (max-width: 85.4275em) {
+.input-sample {
+			font-size: 13.72549px;
+}
+}
+.input-sample:focus, .input-sample:active {
+		border-bottom: 0.0625vw solid #2c2c2c;
+}
+.input-sample::-webkit-input-placeholder {
+		font-family: Roboto;
+		font-weight: 300;
+}
+.input-sample::-moz-placeholder {
+		font-family: Roboto;
+		font-weight: 300;
+}
+.input-sample:-ms-input-placeholder {
+		font-family: Roboto;
+		font-weight: 300;
+}
+.input-sample::-ms-input-placeholder {
+		font-family: Roboto;
+		font-weight: 300;
+}
+.input-sample::placeholder {
+		font-family: Roboto;
+		font-weight: 300;
+}
+.input-sample:focus, .input-sample:active {
+		border-bottom: 0;
+}
+.text-default {
+	text-align: left;
+	border-bottom: 0;
+}
+.absolute-parent {
+	position: relative;
+	display: inline-block;
+}
+.inline-children {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: row;
+			-ms-flex-pack: row;
+					justify-content: row;
+}
+.inline-children > div, .inline-children > span, .inline-children > svg, .inline-children > button {
+		display: inline-block;
+}
+.pointer {
+	cursor: pointer;
+}
+.font-regular {
+	font-size: 1vw;
+	font-family: Roboto;
+	font-weight: 300;
+}
+@media (max-width: 85.4275em) {
+.font-regular {
+			font-size: 15.68627px;
+}
+}
+.label-style {
+	display: inline-block;
+	cursor: pointer;
+	margin-right: 1vw;
+	font-size: 1vw;
+	font-family: Roboto;
+	font-weight: 500;
+	margin-top: 0.3125vw;
+	margin-bottom: 0.3125vw;
+	padding-bottom: 0.25vw;
+	padding-top: 0.5vw;
+	width: 9.8125vw;
+}
+@media (max-width: 85.4275em) {
+.label-style {
+			font-size: 15.68627px;
+}
+}
+.bottom-empty-1 {
+	margin-bottom: 10.625vw;
+}
+.bottom-space-2 {
+	margin-bottom: 12.5vw;
+}
+.column {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+			-ms-flex-direction: column;
+					flex-direction: column;
+}
+body {
+	font-family: "Roboto", sans-serif;
+	margin: 0;
+	text-align: center;
+}
 .finvault-header {
 	padding-top: 3vw;
 	padding-left: 3vw;
@@ -30,16 +283,14 @@
 .finvault-header .logo img {
 		width: 29.75vw;
 }
-.finvault-header .navigation {
-		margin-right: 3.8125vw;
-		margin-top: 1.25vw;
-		text-align: center;
+@media (max-width: 46.24em) {
+.finvault-header {
+			padding-top: 7vw;
+			padding-left: 7.5vw;
 }
-.finvault-header .navigation span {
-			margin-left: 1.25vw;
-			font-family: Styrene A;
-			font-size: 1.25vw;
-			line-height: 1.625vw;
+.finvault-header .logo img {
+				width: 66vw;
+}
 }
 .footer {
 	color: white;
@@ -63,6 +314,15 @@
 		padding-left: 0.9375vw;
 		padding-right: 0.9375vw;
 }
+@media (max-width: 46.24em) {
+.footer .logo, .footer .right {
+			display: none;
+}
+.footer .center {
+			font-size: 3vw;
+			line-height: 4vw;
+}
+}
 .land-screen {
 	position: relative;
 	display: -webkit-box;
@@ -73,6 +333,11 @@
 	background: -webkit-gradient(linear, left top, left bottom, from(#E3F4FF), to(rgba(255, 255, 255, 0)));
 	background: linear-gradient(180deg, #E3F4FF 0%, rgba(255, 255, 255, 0) 100%);
 	padding-left: 6vw;
+}
+@media (max-width: 46.24em) {
+.land-screen {
+			height: 80vh;
+}
 }
 .gradient-class {
 	background: -webkit-gradient(linear, left top, left bottom, from(#E3F4FF), to(rgba(255, 255, 255, 0)));
@@ -112,6 +377,23 @@
 .screen-1 img {
 		width: 63.75vw;
 }
+@media (max-width: 46.24em) {
+.screen-1 .image-wrap {
+			position: relative;
+			top: 66.66667vw;
+}
+.screen-1 .advert p {
+			font-size: 5vw;
+}
+.screen-1 img {
+			width: 90vw;
+}
+}
+@media (min-width: 46.25em) {
+.hide-desktop {
+		display: none;
+}
+}
 .screen-2 {
 	margin-top: -11.25vw;
 	clear: both;
@@ -131,6 +413,17 @@
 .screen-2 .primary-text {
 		text-align: center;
 }
+@media (max-width: 46.24em) {
+.screen-2 {
+			padding-left: 0;
+}
+.screen-2 img {
+				width: 90vw;
+}
+.screen-2 .primary-text p {
+				font-size: 5vw;
+}
+}
 .screen-3 {
 	padding-top: 7.375vw;
 	padding-bottom: 7.375vw;
@@ -138,8 +431,20 @@
 .screen-3 img {
 		width: 36.625vw;
 }
+@media (max-width: 46.24em) {
+.screen-3 {
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+					-ms-flex-direction: column;
+							flex-direction: column;
+}
+.screen-3 img {
+				width: 90vw;
+}
+}
 .screen-4 {
 	padding-top: 10.25vw;
+	padding-bottom: 7.875vw;
 }
 .screen-4 img {
 		width: 36.625vw;
@@ -153,33 +458,206 @@
 .screen-4 .finvault-button {
 		margin-top: 7.5vw;
 }
-.screen-5 {
-	padding-top: 15vw;
-	padding-left: 1.875vw;
-	background: 0;
-	height: 31.25vw;
+@media (max-width: 46.24em) {
+.screen-4 {
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+					-ms-flex-direction: column;
+							flex-direction: column;
 }
-.screen-5 img {
-		width: 3.125vw;
+.screen-4 img {
+				width: 90vw;
+}
+}
+.screen-5 {
+	padding-top: 8.5vw;
+	padding-bottom: 13.8125vw;
+	padding-left: 1.875vw;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+			-ms-flex-direction: column;
+					flex-direction: column;
+}
+.screen-5 .primary-title {
+		padding-bottom: 7.5vw;
+}
+.screen-5 .content-block {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-pack: distribute;
+				justify-content: space-around;
+}
+.screen-5 .skill {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+}
+.screen-5 .skill.skill-0 img {
+			width: 10.375vw;
+			-webkit-transform: translateX(1.25vw);
+							transform: translateX(1.25vw);
+}
+.screen-5 .skill.skill-1 img {
+			width: 13.4375vw;
+			-webkit-transform: translateX(1.25vw);
+							transform: translateX(1.25vw);
+}
+.screen-5 .skill.skill-2 img {
+			width: 9.25vw;
+			-webkit-transform: translateX(20px);
+							transform: translateX(20px);
+}
+.screen-5 .skill.skill-3 img {
+			width: 9.3125vw;
+			-webkit-transform: translateX(20px);
+							transform: translateX(20px);
+}
+.screen-5 .skill .number, .screen-5 .skill .content {
+			height: 12.5vw;
+}
+.screen-5 .skill .number {
+			font-family: Styrene A;
+			font-size: 3.125vw;
+			line-height: 25vw;
+}
+.screen-5 .skill .content {
+			height: 25vw;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+					-ms-flex-direction: column;
+							flex-direction: column;
+			-ms-flex-pack: distribute;
+					justify-content: space-around;
+}
+.screen-5 .skill .content > div:first-child {
+				height: 7.5vw;
+}
+.screen-5 .skill .content span {
+				margin-top: -11.25vw;
+				margin-left: 1.875vw;
 }
 .screen-5 .skill img, .screen-5 .skill span {
+			display: inline-block;
+}
+.screen-6 {
+	padding-top: 9.3125vw;
+	padding-bottom: 9.1875vw;
+	padding-left: 0;
+	-ms-flex-pack: distribute;
+			justify-content: space-around;
+}
+.screen-6 .checkbox-wrap {
+		padding-top: 2.125vw;
+		padding-bottom: 2.625vw;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+}
+.screen-6 .checkbox-wrap .checkbox-text {
+			font-family: "Roboto", sans-serif;
+			font-size: 1.1875vw;
+}
+.screen-6 .checkbox-wrap .checkbox-text span {
+				display: inline-block;
+				color: #737373;
+				-webkit-transform: translateY(-0.5vw);
+								transform: translateY(-0.5vw);
+}
+.screen-6 .checkbox-wrap .checkbox {
+			width: 1.7675vw;
+			height: 1.7675vw;
+			border: 1px solid #989898;
+}
+@media (max-width: 46.24em) {
+.screen-6 .checkbox-wrap {
+				margin-bottom: 4.5vw;
+}
+.screen-6 .checkbox-wrap .checkbox-text {
+					font-size: 3.16667vw;
+}
+.screen-6 .checkbox-wrap .checkbox {
+					width: 4.71333vw;
+					height: 4.71333vw;
+					-webkit-transform: translateY(3px);
+									transform: translateY(3px);
+}
+}
+.screen-6 input {
+		padding-left: 0.3125vw;
+		width: 33.0775vw;
+		font-family: "Roboto", sans-serif;
+		font-size: 1.375vw;
+		line-height: 1.8125vw;
+		height: 4.3125vw;
+		border: none;
+		border-bottom: 1px solid #AAAAAA;
+		background: transparent;
+		color: #737373;
+}
+.screen-6 input:placeholder {
+			color: #737373;
+}
+.screen-6 input:focus, .screen-6 input:active {
+			outline: none;
+}
+@media (max-width: 46.24em) {
+.screen-6 input {
+				height: 11.5vw;
+				width: 88.20667vw;
+				font-size: 3.66667vw;
+				line-height: 4.83333vw;
+}
+}
+.screen-6 .button-wrapper .form-button {
+		width: 14.03313vw;
+		height: 4.57562vw;
+		border: 2px solid #B3B3B3;
+		-webkit-box-sizing: border-box;
+						box-sizing: border-box;
+		border-radius: 1vw;
 		display: inline-block;
+		font-family: "Roboto", sans-serif;
+		font-size: 1.625vw;
+		line-height: 4.38812vw;
+		text-align: center;
+		letter-spacing: 0.2em;
+		color: #6B6B6B;
 }
-.screen-5 .skill span {
-		margin-top: -11.25vw;
-		margin-left: 1.875vw;
+.screen-6 .button-wrapper .form-button:hover {
+			cursor: pointer;
+			border: 2px solid black;
+			color: black;
 }
-.screen-5 .skill-0 {
-		padding-top: 0.625vw;
+@media (max-width: 46.24em) {
+.screen-6 .button-wrapper .form-button {
+				font-size: 4.33333vw;
+				width: 37.42167vw;
+				height: 12.20167vw;
+				line-height: 11.36833vw;
+				display: block;
+				margin: 0 auto;
 }
-.screen-5 .skill-1 {
-		padding-top: 15vw;
 }
-.screen-5 .skill-2 {
-		padding-top: 0.625vw;
+.screen-6 img {
+		width: 28.125vw;
 }
-.screen-5 .skill-3 {
-		padding-top: 15vw;
+@media (max-width: 46.24em) {
+.screen-6 {
+			padding-top: 14.83333vw;
+}
+.screen-6 .image-block {
+				display: none;
+}
+.screen-6 .button-wrapper {
+				text-align: center;
+}
+.screen-6 .form {
+				padding-top: 16.16667vw;
+}
 }
 .button-wrapper {
 	display: -webkit-box;
@@ -197,37 +675,59 @@
 .finvault-button:hover {
 		cursor: pointer;
 }
+@media (max-width: 46.24em) {
+.finvault-button {
+			width: 52.77vw;
+			height: 12.27333vw;
+			line-height: 12.27333vw;
+}
+}
 .little-button-text {
-	font-family: Styrene A;
+	font-family: "Roboto", sans-serif;
 	font-size: 1.875vw;
 	line-height: 2.375vw;
 	text-align: center;
 }
 .button-text {
-	font-family: Styrene A;
+	font-family: "Roboto", sans-serif;
 	font-size: 2.25vw;
 	line-height: 2.875vw;
 	text-align: center;
 }
 .skill-text {
-	font-family: Styrene A;
+	font-family: "Roboto", sans-serif;
 	font-size: 1.25vw;
 	line-height: 1.625vw;
 }
 .primary-text {
 	text-align: left;
-	font-family: Styrene A;
+	font-family: "Roboto", sans-serif;
 	font-size: 1.875vw;
 	line-height: 2.375vw;
 }
+@media (max-width: 46.24em) {
+.primary-text {
+			text-align: center;
+			font-size: 4.66667vw;
+			line-height: 5.66667vw;
+}
+}
 .primary-title {
-	font-family: Styrene A;
+	font-family: "Roboto", sans-serif;
 	font-size: 4.375vw;
 	line-height: 110%;
 	color: #152FFF;
+	font-weight: 700;
+}
+@media (max-width: 46.24em) {
+.primary-title {
+			font-size: 8.33333vw;
+			line-height: 9.16667vw;
+			text-align: center;
+}
 }
 .advert-text {
-	font-family: Styrene A;
+	font-family: "Roboto", sans-serif;
 	font-size: 2.5vw;
 	line-height: 150%;
 }
@@ -235,7 +735,14 @@
 	font-size: 50px;
 	line-height: 150%;
 	color: #1430FF;
-	font-family: Styrene A;
+	font-family: "Roboto", sans-serif;
+}
+@media (max-width: 46.24em) {
+.thin-title {
+			font-size: 8.33333vw;
+			line-height: 9.16667vw;
+			text-align: center;
+}
 }
 .primary-color {
 	color: #152FFF;
@@ -243,11 +750,12 @@
 </style>
 </head>
 <body>
-	<div id="app"><div class="finvault"><div class="gradient-class"><div class="finvault-header"><div class="logo"><img src="/finvault/top-logo.png"></div><div class="navigation"><span>Card</span><span>Prove identity</span><span>FinPay</span><span>Contact us</span></div></div><div class="land-screen screen-1"><div class="advert"><div><p>Open a GBP/EUR account <span class="primary-color">in<br>minutes</span></p><p>Send &amp; receive<br>money <span class="primary-color">in seconds</span></p></div><div class="button-wrapper"><span class="finvault-button">Get Started</span></div></div><div class="image-wrap"><img src="/finvault/screen1.png"></div></div></div><div class="land-screen screen-2"><div class="thin-title">Finvault MasterCard Debit Card</div><div class="image-block"><img src="/finvault/screen2.png"></div><div class="primary-text"><p>Each account gets a free Finvault MasterCard</p></div></div><div class="land-screen screen-3"><div class="primary-block"><div class="primary-title">
+<div id="app"><div class="finvault"><div class="gradient-class"><div class="finvault-header"><div class="logo"><img src="/finvault/top-logo.png"></div></div><div class="land-screen screen-1"><div class="advert"><div><p>Open a GBP/EUR account <span class="primary-color">in<br>minutes</span></p><p>Send &amp; receive<br>money <span class="primary-color">in seconds</span></p></div><div class="button-wrapper"><span class="finvault-button">Get Started</span></div></div><div class="image-wrap"><img src="/finvault/screen1.png"></div></div></div><div class="land-screen screen-2"><div class="thin-title">Finvault MasterCard<br class="hide-desktop"> Debit Card</div><div class="image-block"><img src="/finvault/screen2.png"></div><div class="primary-text"><p>Each account gets a free<br class="hide-desktop"> Finvault MasterCard</p></div></div><div class="land-screen screen-3"><div class="primary-block"><div class="primary-title">
 				Prove your identity<br>
 				anytime anywhere
 			</div><div class="primary-text"><p>Your identity is your passport</p><p>Use Finvault to prove your ID on<br> participating merchant websites</p></div><div class="button-wrapper"><span class="finvault-button">Prove my identity<br> with Finvault</span></div></div><div class="image-block"><img src="/finvault/screen3.png"></div></div><div class="land-screen screen-4"><div class="image-block"><img src="/finvault/screen4.png"></div><div class="primary-block"><div class="primary-title">
 				FinPay
-			</div><div class="primary-text"><p>With FinPay you can pay and be paid<br>with no credit cards required</p></div><div class="button-wrapper"><span class="finvault-button">Pay with FinPay</span></div></div></div><div class="land-screen screen-5"><div class="skill-0 skill"><img src="/finvault/1.png"><span class="skill-text">Integrate Finvault's API<br> into your platform</span></div><div class="skill-1 skill"><img src="/finvault/2.png"><span class="skill-text">Your user connects their Finvault<br> account to your platform</span></div><div class="skill-2 skill"><img src="/finvault/3.png"><span class="skill-text">Your user clicks on 'Pay with FinPay'<br>  button and approves the transaction</span></div><div class="skill-3 skill"><img src="/finvault/4.png"><span class="skill-text">You charge funds from<br> the users Finvault balance</span></div></div><div class="footer"><div class="logo"><img src="/finvault/logo-bottom.png"></div><div class="center">© FINVAULT LTD, 2019,  All Rights Reserved.</div><div class="right"><span>Legal</span><span>Privacy Policy</span></div></div></div></div>
+			</div><div class="primary-text"><p>With FinPay you can pay and be paid<br>with no credit cards required</p></div><div class="button-wrapper"><span class="finvault-button">Pay with FinPay</span></div></div></div><div class="land-screen screen-5"><div class="primary-title">How it works</div><div class="content-block"><div class="skill-0 skill"><div class="number">1</div><div class="content"><div><img src="/finvault/Frame.svg"></div><div><span class="skill-text">Integrate Finvault's API<br> into your platform</span></div></div></div><div class="skill-1 skill"><div class="number">2</div><div class="content"><div><img src="/finvault/Frame1.svg"></div><div><span class="skill-text">Your user connects<br> their Finvault account<br> to your platform</span></div></div></div><div class="skill-2 skill"><div class="number">3</div><div class="content"><div><img src="/finvault/Frame2.svg"></div><div><span class="skill-text">Your user clicks on 'Pay with<br> FinPay'  button and approves<br> the transaction</span></div></div></div><div class="skill-3 skill"><div class="number">4</div><div class="content"><div><img src="/finvault/Frame3.svg"></div><div><span class="skill-text">You charge funds<br> from the users<br> Finvault balance</span></div></div></div></div></div><div class="land-screen screen-6"><div class="primary-block"><div class="primary-title">Ask us anything</div><div class="form"><div class="input-wrap"><input type="text" placeholder="Your name*"></div><div class="input-wrap"><input type="text" placeholder="Phone or e-mail*"></div><div class="input-wrap"><input type="text" placeholder="Message*"></div><div class="checkbox-wrap"><label class="checkbox-text"><input type="checkbox" class="checkbox"><span>I agree to the processing of personal data</span></label></div><div class="button-wrapper"><span class="form-button">SEND</span></div></div></div><div class="image-block"><img src="/finvault/screen6.png"></div></div><div class="footer"><div class="logo"><img src="/finvault/logo-bottom.png"></div><div class="center">© FINVAULT LTD, 2019,  All Rights Reserved.</div><div class="right"><span>Legal</span><span>Privacy Policy</span></div></div></div></div>
+	
 </body>
 </html>
