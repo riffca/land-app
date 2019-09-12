@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;display=swap" rel="stylesheet">
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<title>Document</title>
+<html lang="en"><head>
+		<meta charset="utf-8">
+		
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		
+		<title>client</title>
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&amp;display=swap" rel="stylesheet">
 	<style type="text/css">@charset "UTF-8";
 .red-natural-color {
 	color: #ce251b;
@@ -266,7 +266,7 @@ body:before {
 					flex-direction: column;
 }
 body {
-	font-family: "Roboto", sans-serif;
+	font-family: "Montserrat", sans-serif;
 	margin: 0;
 	text-align: center;
 }
@@ -293,6 +293,7 @@ body {
 }
 }
 .footer {
+	font-family: "Montserrat", sans-serif;
 	color: white;
 	background: #2343BA;
 	display: -webkit-box;
@@ -315,12 +316,17 @@ body {
 		padding-right: 0.9375vw;
 }
 @media (max-width: 46.24em) {
+.footer {
+			padding: 0;
+			padding-top: 15vw;
+			padding-bottom: 15vw;
+}
 .footer .logo, .footer .right {
-			display: none;
+				display: none;
 }
 .footer .center {
-			font-size: 3vw;
-			line-height: 4vw;
+				font-size: 3vw;
+				line-height: 4vw;
 }
 }
 .land-screen {
@@ -337,6 +343,7 @@ body {
 @media (max-width: 46.24em) {
 .land-screen {
 			height: 80vh;
+			padding-left: 0;
 }
 }
 .gradient-class {
@@ -380,7 +387,7 @@ body {
 @media (max-width: 46.24em) {
 .screen-1 .image-wrap {
 			position: relative;
-			top: 66.66667vw;
+			top: 60.66667vw;
 }
 .screen-1 .advert p {
 			font-size: 5vw;
@@ -391,7 +398,12 @@ body {
 }
 @media (min-width: 46.25em) {
 .hide-desktop {
-		display: none;
+		display: none !important;
+}
+}
+@media (max-width: 46.24em) {
+.hide-mobile {
+		display: none !important;
 }
 }
 .screen-2 {
@@ -418,13 +430,14 @@ body {
 			padding-left: 0;
 }
 .screen-2 img {
-				width: 90vw;
+				width: 87.16667vw;
 }
 .screen-2 .primary-text p {
 				font-size: 5vw;
 }
 }
 .screen-3 {
+	position: relative;
 	padding-top: 7.375vw;
 	padding-bottom: 7.375vw;
 }
@@ -433,13 +446,25 @@ body {
 }
 @media (max-width: 46.24em) {
 .screen-3 {
+			padding-bottom: 15vw;
 			-webkit-box-orient: vertical;
 			-webkit-box-direction: normal;
 					-ms-flex-direction: column;
 							flex-direction: column;
 }
 .screen-3 img {
-				width: 90vw;
+				width: 80vw;
+}
+.screen-3 .finvault-button {
+				position: absolute;
+				bottom: 8.33333vw;
+				left: 50%;
+				-webkit-transform: translateX(-45%);
+								transform: translateX(-45%);
+				font-size: 5vw;
+				line-height: 7.5vw;
+				padding-top: 2vw;
+				padding-bottom: 5vw;
 }
 }
 .screen-4 {
@@ -460,13 +485,21 @@ body {
 }
 @media (max-width: 46.24em) {
 .screen-4 {
+			position: relative;
 			-webkit-box-orient: vertical;
-			-webkit-box-direction: normal;
-					-ms-flex-direction: column;
-							flex-direction: column;
+			-webkit-box-direction: reverse;
+					-ms-flex-direction: column-reverse;
+							flex-direction: column-reverse;
 }
 .screen-4 img {
 				width: 90vw;
+}
+.screen-4 .finvault-button {
+				position: absolute;
+				bottom: 8.33333vw;
+				left: 50%;
+				-webkit-transform: translateX(-45%);
+								transform: translateX(-45%);
 }
 }
 .screen-5 {
@@ -477,6 +510,11 @@ body {
 	-webkit-box-direction: normal;
 			-ms-flex-direction: column;
 					flex-direction: column;
+}
+.screen-5 .skill-text {
+		font-family: "Montserrat", sans-serif;
+		font-size: 1.25vw;
+		line-height: 1.625vw;
 }
 .screen-5 .primary-title {
 		padding-bottom: 7.5vw;
@@ -500,8 +538,8 @@ body {
 }
 .screen-5 .skill.skill-1 img {
 			width: 13.4375vw;
-			-webkit-transform: translateX(1.25vw);
-							transform: translateX(1.25vw);
+			-webkit-transform: translateX(1.25vw) translateY(2.5vw);
+							transform: translateX(1.25vw) translateY(2.5vw);
 }
 .screen-5 .skill.skill-2 img {
 			width: 9.25vw;
@@ -517,7 +555,7 @@ body {
 			height: 12.5vw;
 }
 .screen-5 .skill .number {
-			font-family: Styrene A;
+			font-family: "Montserrat", sans-serif;
 			font-size: 3.125vw;
 			line-height: 25vw;
 }
@@ -537,11 +575,83 @@ body {
 				height: 7.5vw;
 }
 .screen-5 .skill .content span {
-				margin-top: -11.25vw;
 				margin-left: 1.875vw;
 }
 .screen-5 .skill img, .screen-5 .skill span {
 			display: inline-block;
+}
+@media (max-width: 46.24em) {
+.screen-5 {
+			overflow: hidden;
+}
+.screen-5 .primary-title {
+				padding-bottom: 0;
+}
+.screen-5 .skill-text {
+				font-size: 5vw;
+				line-height: 6.16667vw;
+}
+.screen-5 .content-block {
+				-webkit-overflow-scrolling: touch;
+				-ms-flex-wrap: nowrap;
+						flex-wrap: nowrap;
+				overflow-x: auto;
+}
+.screen-5 .skill {
+				-webkit-box-flex: 0;
+						-ms-flex: 0 0 auto;
+								flex: 0 0 auto;
+				-ms-flex-negative: 0;
+						flex-shrink: 0;
+				width: 100vw;
+				-webkit-box-orient: vertical;
+				-webkit-box-direction: normal;
+						-ms-flex-direction: column;
+								flex-direction: column;
+}
+.screen-5 .skill.skill-0 img {
+					width: 27.66667vw;
+					-webkit-transform: translateX(3.33333vw);
+									transform: translateX(3.33333vw);
+}
+.screen-5 .skill.skill-1 img {
+					width: 35.83333vw;
+					-webkit-transform: translateX(3.33333vw);
+									transform: translateX(3.33333vw);
+}
+.screen-5 .skill.skill-2 img {
+					width: 24.66667vw;
+					-webkit-transform: translateX(20px);
+									transform: translateX(20px);
+}
+.screen-5 .skill.skill-3 img {
+					width: 24.83333vw;
+					-webkit-transform: translateX(20px);
+									transform: translateX(20px);
+}
+.screen-5 .skill .number, .screen-5 .skill .content {
+					height: initial;
+}
+.screen-5 .skill .number {
+					height: 20vw;
+					font-size: 8.33333vw;
+					line-height: initial;
+}
+.screen-5 .skill .content {
+					height: 66.66667vw;
+					display: -webkit-box;
+					display: -ms-flexbox;
+					display: flex;
+					-webkit-box-orient: vertical;
+					-webkit-box-direction: normal;
+							-ms-flex-direction: column;
+									flex-direction: column;
+					-ms-flex-pack: distribute;
+							justify-content: space-around;
+}
+.screen-5 .skill .content > div:first-child {
+						height: 20vw;
+}
 }
 .screen-6 {
 	padding-top: 9.3125vw;
@@ -558,7 +668,7 @@ body {
 		display: flex;
 }
 .screen-6 .checkbox-wrap .checkbox-text {
-			font-family: "Roboto", sans-serif;
+			font-family: "Montserrat", sans-serif;
 			font-size: 1.1875vw;
 }
 .screen-6 .checkbox-wrap .checkbox-text span {
@@ -589,7 +699,7 @@ body {
 .screen-6 input {
 		padding-left: 0.3125vw;
 		width: 33.0775vw;
-		font-family: "Roboto", sans-serif;
+		font-family: "Montserrat", sans-serif;
 		font-size: 1.375vw;
 		line-height: 1.8125vw;
 		height: 4.3125vw;
@@ -620,7 +730,7 @@ body {
 						box-sizing: border-box;
 		border-radius: 1vw;
 		display: inline-block;
-		font-family: "Roboto", sans-serif;
+		font-family: "Montserrat", sans-serif;
 		font-size: 1.625vw;
 		line-height: 4.38812vw;
 		text-align: center;
@@ -645,9 +755,15 @@ body {
 .screen-6 img {
 		width: 28.125vw;
 }
+@media (min-width: 46.25em) {
+.screen-6 .input-wrap {
+			margin-left: -3.125vw;
+}
+}
 @media (max-width: 46.24em) {
 .screen-6 {
 			padding-top: 14.83333vw;
+			height: 69vh;
 }
 .screen-6 .image-block {
 				display: none;
@@ -665,6 +781,7 @@ body {
 	display: flex;
 }
 .finvault-button {
+	font-family: "Montserrat", sans-serif;
 	display: inline-block;
 	padding: 0.625vw;
 	width: 19.75vw;
@@ -680,28 +797,24 @@ body {
 			width: 52.77vw;
 			height: 12.27333vw;
 			line-height: 12.27333vw;
+			border-radius: 2.66667vw;
 }
 }
 .little-button-text {
-	font-family: "Roboto", sans-serif;
+	font-family: "Montserrat", sans-serif;
 	font-size: 1.875vw;
 	line-height: 2.375vw;
 	text-align: center;
 }
 .button-text {
-	font-family: "Roboto", sans-serif;
+	font-family: "Montserrat", sans-serif;
 	font-size: 2.25vw;
 	line-height: 2.875vw;
 	text-align: center;
 }
-.skill-text {
-	font-family: "Roboto", sans-serif;
-	font-size: 1.25vw;
-	line-height: 1.625vw;
-}
 .primary-text {
 	text-align: left;
-	font-family: "Roboto", sans-serif;
+	font-family: "Montserrat", sans-serif;
 	font-size: 1.875vw;
 	line-height: 2.375vw;
 }
@@ -713,7 +826,7 @@ body {
 }
 }
 .primary-title {
-	font-family: "Roboto", sans-serif;
+	font-family: "Montserrat", sans-serif;
 	font-size: 4.375vw;
 	line-height: 110%;
 	color: #152FFF;
@@ -727,7 +840,7 @@ body {
 }
 }
 .advert-text {
-	font-family: "Roboto", sans-serif;
+	font-family: "Montserrat", sans-serif;
 	font-size: 2.5vw;
 	line-height: 150%;
 }
@@ -735,7 +848,7 @@ body {
 	font-size: 50px;
 	line-height: 150%;
 	color: #1430FF;
-	font-family: "Roboto", sans-serif;
+	font-family: "Montserrat", sans-serif;
 }
 @media (max-width: 46.24em) {
 .thin-title {
@@ -747,15 +860,22 @@ body {
 .primary-color {
 	color: #152FFF;
 }
-</style>
-</head>
-<body>
-<div id="app"><div class="finvault"><div class="gradient-class"><div class="finvault-header"><div class="logo"><img src="/finvault/top-logo.png"></div></div><div class="land-screen screen-1"><div class="advert"><div><p>Open a GBP/EUR account <span class="primary-color">in<br>minutes</span></p><p>Send &amp; receive<br>money <span class="primary-color">in seconds</span></p></div><div class="button-wrapper"><span class="finvault-button">Get Started</span></div></div><div class="image-wrap"><img src="/finvault/screen1.png"></div></div></div><div class="land-screen screen-2"><div class="thin-title">Finvault MasterCard<br class="hide-desktop"> Debit Card</div><div class="image-block"><img src="/finvault/screen2.png"></div><div class="primary-text"><p>Each account gets a free<br class="hide-desktop"> Finvault MasterCard</p></div></div><div class="land-screen screen-3"><div class="primary-block"><div class="primary-title">
+</style></head>
+	<body>
+		
+		<div id="app"><div class="finvault"><div class="gradient-class"><div class="finvault-header"><div class="logo"><img src="/finvault/top-logo.png"></div></div><div class="land-screen screen-1"><div class="advert"><div><p>Open a GBP/EUR account <span class="primary-color">in<br>minutes</span></p><p>Send &amp; receive<br>money <span class="primary-color">in seconds</span></p></div><div class="button-wrapper"><span class="finvault-button">Get Started</span></div></div><div class="image-wrap"><img src="/finvault/screen1.png"></div></div></div><div class="land-screen screen-2"><div class="thin-title">Finvault MasterCard<br class="hide-desktop"> Debit Card</div><div class="image-block"><img src="/finvault/screen2.png"></div><div class="primary-text"><p>Each account gets a free<br class="hide-desktop"> Finvault MasterCard</p></div></div><div class="land-screen screen-3"><div class="primary-block"><div class="primary-title">
 				Prove your identity<br>
 				anytime anywhere
-			</div><div class="primary-text"><p>Your identity is your passport</p><p>Use Finvault to prove your ID on<br> participating merchant websites</p></div><div class="button-wrapper"><span class="finvault-button">Prove my identity<br> with Finvault</span></div></div><div class="image-block"><img src="/finvault/screen3.png"></div></div><div class="land-screen screen-4"><div class="image-block"><img src="/finvault/screen4.png"></div><div class="primary-block"><div class="primary-title">
+			</div><div class="primary-text"><p>Your identity is your passport</p><p>
+					Use Finvault to prove your ID on<br class="hide-mobile"> 
+					participating<br class="hide-desktop"> 
+					merchant websites
+				</p></div><div class="button-wrapper"><div class="hide-mobile finvault-button">
+					Prove my identity<br> with Finvault
+				</div><div class="hide-desktop finvault-button"><div>Prove my identity</div><div>with Finvault</div></div></div></div><div class="image-block"><img src="/finvault/screen3.png"></div></div><div class="land-screen screen-4"><div class="image-block"><img src="/finvault/screen4.png"></div><div class="primary-block"><div class="primary-title">
 				FinPay
-			</div><div class="primary-text"><p>With FinPay you can pay and be paid<br>with no credit cards required</p></div><div class="button-wrapper"><span class="finvault-button">Pay with FinPay</span></div></div></div><div class="land-screen screen-5"><div class="primary-title">How it works</div><div class="content-block"><div class="skill-0 skill"><div class="number">1</div><div class="content"><div><img src="/finvault/Frame.svg"></div><div><span class="skill-text">Integrate Finvault's API<br> into your platform</span></div></div></div><div class="skill-1 skill"><div class="number">2</div><div class="content"><div><img src="/finvault/Frame1.svg"></div><div><span class="skill-text">Your user connects<br> their Finvault account<br> to your platform</span></div></div></div><div class="skill-2 skill"><div class="number">3</div><div class="content"><div><img src="/finvault/Frame2.svg"></div><div><span class="skill-text">Your user clicks on 'Pay with<br> FinPay'  button and approves<br> the transaction</span></div></div></div><div class="skill-3 skill"><div class="number">4</div><div class="content"><div><img src="/finvault/Frame3.svg"></div><div><span class="skill-text">You charge funds<br> from the users<br> Finvault balance</span></div></div></div></div></div><div class="land-screen screen-6"><div class="primary-block"><div class="primary-title">Ask us anything</div><div class="form"><div class="input-wrap"><input type="text" placeholder="Your name*"></div><div class="input-wrap"><input type="text" placeholder="Phone or e-mail*"></div><div class="input-wrap"><input type="text" placeholder="Message*"></div><div class="checkbox-wrap"><label class="checkbox-text"><input type="checkbox" class="checkbox"><span>I agree to the processing of personal data</span></label></div><div class="button-wrapper"><span class="form-button">SEND</span></div></div></div><div class="image-block"><img src="/finvault/screen6.png"></div></div><div class="footer"><div class="logo"><img src="/finvault/logo-bottom.png"></div><div class="center">© FINVAULT LTD, 2019,  All Rights Reserved.</div><div class="right"><span>Legal</span><span>Privacy Policy</span></div></div></div></div>
+			</div><div class="primary-text"><p>With FinPay you can pay and be paid<br>with no credit cards required</p></div><div class="button-wrapper"><span class="finvault-button">Pay with FinPay</span></div></div></div><div class="land-screen screen-5"><div class="primary-title">How it works</div><div class="content-block"><div class="skill-1 skill hide-desktop"><div class="number">2</div><div class="content"><div><img src="/finvault/Frame.svg"></div><div><span class="skill-text">text</span></div></div></div><div class="skill-1 skill hide-desktop"><div class="number">2</div><div class="content"><div><img src="/finvault/Frame.svg"></div><div><span class="skill-text">text</span></div></div></div><div class="skill-1 skill hide-desktop"><div class="number">2</div><div class="content"><div><img src="/finvault/Frame.svg"></div><div><span class="skill-text">text</span></div></div></div><div class="skill-0 skill"><div class="number">1</div><div class="content"><div><img src="/finvault/Frame.svg"></div><div><span class="skill-text">Integrate Finvault's API<br> into your platform</span></div></div></div><div class="skill-1 skill"><div class="number">2</div><div class="content"><div><img src="/finvault/Frame1.svg"></div><div><span class="skill-text">Your user connects<br> their Finvault account<br> to your platform</span></div></div></div><div class="skill-2 skill"><div class="number">3</div><div class="content"><div><img src="/finvault/Frame2.svg"></div><div><span class="skill-text">Your user clicks on 'Pay with<br> FinPay'  button and approves<br> the transaction</span></div></div></div><div class="skill-3 skill"><div class="number">4</div><div class="content"><div><img src="/finvault/Frame3.svg"></div><div><span class="skill-text">You charge funds<br> from the users<br> Finvault balance</span></div></div></div></div></div><div class="land-screen screen-6"><div class="primary-block"><div class="primary-title">Ask us anything</div><div class="form"><div class="input-wrap"><input type="text" placeholder="Your name*"></div><div class="input-wrap"><input type="text" placeholder="Phone or e-mail*"></div><div class="input-wrap"><input type="text" placeholder="Message*"></div><div class="checkbox-wrap"><label class="checkbox-text"><input type="checkbox" class="checkbox"><span>I agree to the processing of personal data</span></label></div><div class="button-wrapper"><span class="form-button">SEND</span></div></div></div><div class="image-block"><img src="/finvault/screen6.png"></div></div><div class="footer"><div class="logo"><img src="/finvault/logo-bottom.png"></div><div class="center">© FINVAULT LTD, 2019,  All Rights Reserved.</div><div class="right"><span>Legal</span><span>Privacy Policy</span></div></div></div></div>
+		
 	
-</body>
-</html>
+
+</body></html>
