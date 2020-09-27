@@ -1,1170 +1,1365 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 		<!--[if IE]><link rel="icon" href="/favicon.ico"><![endif]-->
-		
 		<title>client</title>
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&amp;display=swap" rel="stylesheet">
 
-	
-<style type="text/css">
+		<style type="text/css">
+		/*@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');*/
 
-body {
-	--label-font-family: sans-serif;
-	--label-font-size: 14px;
+		body {
+				--label-font-family: sans-serif;
+				--label-font-size: 14px;
 
-	--title-font-family: sans-serif;
-	--title-font-size: 16px;
+				--title-font-family: sans-serif;
+				--title-font-size: 16px;
 
-	--body-font-family: sans-serif;
-	--body-font-size: 14px;
+				--body-font-family: sans-serif;
+				--body-font-size: 14px;
 
-	--color-gray: #a0a0a0;
-	--color-light-gray: #eee;
-	--color-dark-gray: #777;
-	--color-magenta: #F734D7;
-	--color-teal: #22DBC0;
+				--color-gray: #a0a0a0;
+				--color-light-gray: #eee;
+				--color-dark-gray: #777;
+				--color-magenta: #F734D7;
+				--color-teal: #22DBC0;
 
-	--outline-color: var(--color-dark-gray);
+				--outline-color: var(--color-dark-gray);
 
-	--shadow-low: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-	--shadow-medium: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-	--shadow-high: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+				--shadow-low: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+				--shadow-medium: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+				--shadow-high: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
 
-	--default-margin: 8px 0px 0px 0px;
-	--side-panel-width: 240px;
-	--side-panel-transition: 0.2s;
+				--default-margin: 8px 0px 0px 0px;
+				--side-panel-width: 240px;
+				--side-panel-transition: 0.2s;
 
-	font-family: var(--body-font-family);
-	font-size: var(--body-font-size);
-	line-height: 1.4em;
+				font-family: var(--body-font-family);
+				font-size: var(--body-font-size);
+				line-height: 1.4em;
 
-}
+		}
 
-body #interface {
-	max-width: 600px;
-	width: 100%;
-	min-width: 300px;
-	margin: 0 auto;
-}
+		body #interface {
+				max-width: 600px;
+				width: 100%;
+				min-width: 300px;
+				margin: 0 auto;
+		}
 
-body #interface * {
-	display: inline-block;
-	margin: 5px 0;
-	width: 100%;
-}</style>
-<style type="text/css">@charset "UTF-8";
-.red-natural-color {
-	color: #ce251b;
-	fill: #ce251b;
-}
+		body #interface * {
+				display: inline-block;
+				margin: 5px 0;
+				width: 100%;
+		}
+		</style>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+		<link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/img/icons/favicon-16x16.png">
+		<link rel="manifest" href="/manifest.json">
+		<meta name="theme-color" content="#4DBA87">
+		<meta name="apple-mobile-web-app-capable" content="no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="default">
+		<meta name="apple-mobile-web-app-title" content="client">
+		<link rel="apple-touch-icon" href="/img/icons/apple-touch-icon-152x152.png">
+		<link rel="mask-icon" href="/img/icons/safari-pinned-tab.svg" color="#4DBA87">
+		<meta name="msapplication-TileImage" content="/img/icons/msapplication-icon-144x144.png">
+		<meta name="msapplication-TileColor" content="#000000">
+		<style type="text/css">
+		@charset "UTF-8";
 
-/* BEGIN Light */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Light/Roboto-Light.woff2?v=2.137") format("woff2"), url("/fonts/Light/Roboto-Light.woff?v=2.137") format("woff");
-	font-weight: 300;
-	font-style: normal;
-}
+		.red-natural-color {
+				color: #ce251b;
+				fill: #ce251b;
+		}
 
-/* END Light */
-/* BEGIN Regular */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
-	font-weight: 400;
-	font-style: normal;
-}
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
-	font-weight: normal;
-	font-style: normal;
-}
+		/* BEGIN Light */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Light/Roboto-Light.woff2?v=2.137") format("woff2"), url("/fonts/Light/Roboto-Light.woff?v=2.137") format("woff");
+				font-weight: 300;
+				font-style: normal;
+		}
 
-/* END Regular */
-/* BEGIN Medium */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Medium/Roboto-Medium.woff2?v=2.137") format("woff2"), url("/fonts/Medium/Roboto-Medium.woff?v=2.137") format("woff");
-	font-weight: 500;
-	font-style: normal;
-}
+		/* END Light */
+		/* BEGIN Regular */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
+				font-weight: 400;
+				font-style: normal;
+		}
 
-/* END Medium */
-/* BEGIN Medium Italic */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/MediumItalic/Roboto-MediumItalic.woff2?v=2.137") format("woff2"), url("/fonts/MediumItalic/Roboto-MediumItalic.woff?v=2.137") format("woff");
-	font-weight: 500;
-	font-style: italic;
-}
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
+				font-weight: normal;
+				font-style: normal;
+		}
 
-/* END Medium Italic */
-/* BEGIN Bold */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
-	font-weight: 700;
-	font-style: normal;
-}
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
-	font-weight: bold;
-	font-style: normal;
-}
+		/* END Regular */
+		/* BEGIN Medium */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Medium/Roboto-Medium.woff2?v=2.137") format("woff2"), url("/fonts/Medium/Roboto-Medium.woff?v=2.137") format("woff");
+				font-weight: 500;
+				font-style: normal;
+		}
 
-/* END Bold */
-body:before {
-	display: none;
-}
-body:before {
-	background-color: #FCF8E3;
-	border-bottom: 1px solid #FBEED5;
-	border-left: 1px solid #FBEED5;
-	color: #C09853;
-	font: small-caption;
-	padding: 3px 6px;
-	pointer-events: none;
-	position: fixed;
-	right: 0;
-	top: 0;
-	z-index: 100;
-}
-@media (min-width: 20em) {
-body:before {
-			content: "mobile \2265   320px (20em)";
-}
-}
-@media (min-width: 46.25em) {
-body:before {
-			content: "tablet \2265   740px (46.25em)";
-}
-}
-@media (min-width: 61.25em) {
-body:before {
-			content: "desktop \2265   980px (61.25em)";
-}
-}
-@media (min-width: 81.25em) {
-body:before {
-			content: "wide \2265   1300px (81.25em)";
-}
-}
-@media (min-width: 85.4375em) {
-body:before {
-			content: "stopVWBreakpoint \2265   1367px (85.4375em)";
-}
-}
-@media (min-width: 120em) {
-body:before {
-			content: "tiktokenWide \2265   1920px (120em)";
-}
-}
-@media (min-width: 62.5em) {
-body:before {
-			content: "tiktokenTablet \2265   1000px (62.5em)";
-}
-}
-@media (min-width: 40em) {
-body:before {
-			content: "tiktokenMobile \2265   640px (40em)";
-}
-}
-body {
-	padding: 0;
-	margin: 0;
-}
-.main-button {
-	background: #D65076;
-	color: white;
-	font-size: 1.19792vw;
-}
-.text-blue-01 {
-	font-size: 0.9375vw;
-	color: #92A8D1;
-}
-.text-blue-02 {
-	font-size: 1.25vw;
-	color: #92A8D1;
-}
-.text-blue-03 {
-	font-size: 1.66667vw;
-	color: #92A8D1;
-}
-#app {
-	font-family: 'Avenir', Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
-	color: #2c3e50;
-}
-#nav {
-	padding: 30px;
-}
-#nav a {
-		font-weight: bold;
-		color: #2c3e50;
-}
-#nav a.router-link-exact-active {
-			color: #42b983;
-}
-.list-item {
-	cursor: pointer;
-}
-.list-title:hover {
-	color: #CE5B78;
-}
-.column {
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-			-ms-flex-direction: column;
-					flex-direction: column;
-}
-.mini {
-	font-size: 0.9375vw;
-}
-.flex-center {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-			-ms-flex-pack: center;
-					justify-content: center;
-}
-.flex-column {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-			-ms-flex-pack: center;
-					justify-content: center;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-			-ms-flex-direction: column;
-					flex-direction: column;
-}
-.flex1 {
-	width: 45%;
-}
-.wrap {
-	-ms-flex-wrap: wrap;
-			flex-wrap: wrap;
-}
-.cursor {
-	cursor: pointer;
-}
-.delete-icon {
-	cursor: pointer;
-	position: absolute;
-	top: 1vw;
-	right: 1vw;
-}
-.clickable {
-	cursor: pointer;
-	padding: .1vw 1vw;
-	min-width: 3vw;
-	border-radius: .2vw;
-	border: 1px solid black;
-	margin: .1vw 1vw;
-}
-.clickable.but {
-		min-width: 5vw;
-		min-height: 2vw;
-}
-.clickable:hover {
-		-webkit-transform: scale(1.02);
-						transform: scale(1.02);
-}
-.fixed-items > div {
-	-webkit-box-flex: 1;
-			-ms-flex: 1;
-					flex: 1;
-	line-height: 100%;
-}
-.wrap-form input, .wrap-form textarea {
-	padding: 9px;
-	border: solid 1px #E5E5E5;
-	outline: 0;
-	font: normal 13px/100% Verdana, Tahoma, sans-serif;
-	width: 100%;
-	background: #FFFFFF;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-}
-.wrap-form textarea {
-	width: 100%;
-	height: 150px;
-	line-height: 150%;
-}
-.wrap-form input:hover, .wrap-form textarea:hover,
-.wrap-form input:focus, .wrap-form textarea:focus {
-	border-color: #C9C9C9;
-}
-.wrap-form label {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	margin-left: 0px;
-	color: #999999;
-}
-.wrap-form button, .wrap-form input[type="submit"] {
-	width: auto;
-	padding: 9px 15px;
-	background: #cccccc;
-	border: 0;
-	font-size: 14px;
-	color: #FFFFFF;
-}
-.block {
-	display: block;
-}
-.inline {
-	display: inline-block;
-}
-.alingn-center {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-			-ms-flex-align: center;
-					align-items: center;
-}
-.flex-row {
-	width: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: start;
-			-ms-flex-align: start;
-					align-items: flex-start;
-}
-.flex-container {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-}
-@media (min-width: 85.4375em) {
-.showUntilBreakpoint {
-		display: none;
-}
-}
-.absolute-node {
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-.no-left {
-	padding-left: 0 !important;
-}
-.hide-border {
-	border: 0 !important;
-}
-.no-right {
-	padding-right: 0 !important;
-}
-.input-margins {
-	margin-top: 0.26042vw;
-	margin-bottom: 0.26042vw;
-}
-.dashed-border {
-	border-bottom: 0.05208vw dashed !important;
-}
-.input-sample {
-	word-break: break-word;
-	display: inline-block;
-	width: 9.21875vw;
-	padding-bottom: 0.20833vw;
-	font-size: 0.72917vw;
-	outline: none;
-	border-top: 0;
-	border-left: 0;
-	border-right: 0;
-	border-bottom: 0.05208vw solid #2c2c2c;
-	padding-top: 0.41667vw;
-	margin-top: 0.26042vw;
-	margin-bottom: 0.26042vw;
-}
-@media (max-width: 85.4275em) {
-.input-sample {
-			font-size: 13.72549px;
-}
-}
-.input-sample:focus, .input-sample:active {
-		border-bottom: 0.05208vw solid #2c2c2c;
-}
-.input-sample::-webkit-input-placeholder {
-		font-family: Roboto;
-		font-weight: 300;
-}
-.input-sample::-moz-placeholder {
-		font-family: Roboto;
-		font-weight: 300;
-}
-.input-sample:-ms-input-placeholder {
-		font-family: Roboto;
-		font-weight: 300;
-}
-.input-sample::-ms-input-placeholder {
-		font-family: Roboto;
-		font-weight: 300;
-}
-.input-sample::placeholder {
-		font-family: Roboto;
-		font-weight: 300;
-}
-.input-sample:focus, .input-sample:active {
-		border-bottom: 0;
-}
-.text-default {
-	text-align: left;
-	border-bottom: 0;
-}
-.absolute-parent {
-	position: relative;
-	display: inline-block;
-}
-.inline-children {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: row;
-			-ms-flex-pack: row;
-					justify-content: row;
-}
-.inline-children > div, .inline-children > span, .inline-children > svg, .inline-children > button {
-		display: inline-block;
-}
-.pointer {
-	cursor: pointer;
-}
-.font-regular {
-	font-size: 0.83333vw;
-	font-family: Roboto;
-	font-weight: 300;
-}
-@media (max-width: 85.4275em) {
-.font-regular {
-			font-size: 15.68627px;
-}
-}
-.label-style {
-	display: inline-block;
-	cursor: pointer;
-	margin-right: 0.83333vw;
-	font-size: 0.83333vw;
-	font-family: Roboto;
-	font-weight: 500;
-	margin-top: 0.26042vw;
-	margin-bottom: 0.26042vw;
-	padding-bottom: 0.20833vw;
-	padding-top: 0.41667vw;
-	width: 8.17708vw;
-}
-@media (max-width: 85.4275em) {
-.label-style {
-			font-size: 15.68627px;
-}
-}
-.bottom-empty-1 {
-	margin-bottom: 8.85417vw;
-}
-.bottom-space-2 {
-	margin-bottom: 10.41667vw;
-}
-</style><style type="text/css">@charset "UTF-8";
-.red-natural-color {
-	color: #ce251b;
-	fill: #ce251b;
-}
+		/* END Medium */
+		/* BEGIN Medium Italic */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/MediumItalic/Roboto-MediumItalic.woff2?v=2.137") format("woff2"), url("/fonts/MediumItalic/Roboto-MediumItalic.woff?v=2.137") format("woff");
+				font-weight: 500;
+				font-style: italic;
+		}
 
-/* BEGIN Light */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Light/Roboto-Light.woff2?v=2.137") format("woff2"), url("/fonts/Light/Roboto-Light.woff?v=2.137") format("woff");
-	font-weight: 300;
-	font-style: normal;
-}
+		/* END Medium Italic */
+		/* BEGIN Bold */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
+				font-weight: 700;
+				font-style: normal;
+		}
 
-/* END Light */
-/* BEGIN Regular */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
-	font-weight: 400;
-	font-style: normal;
-}
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
-	font-weight: normal;
-	font-style: normal;
-}
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
+				font-weight: bold;
+				font-style: normal;
+		}
 
-/* END Regular */
-/* BEGIN Medium */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Medium/Roboto-Medium.woff2?v=2.137") format("woff2"), url("/fonts/Medium/Roboto-Medium.woff?v=2.137") format("woff");
-	font-weight: 500;
-	font-style: normal;
-}
+		/* END Bold */
+		body:before {
+				display: none;
+		}
 
-/* END Medium */
-/* BEGIN Medium Italic */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/MediumItalic/Roboto-MediumItalic.woff2?v=2.137") format("woff2"), url("/fonts/MediumItalic/Roboto-MediumItalic.woff?v=2.137") format("woff");
-	font-weight: 500;
-	font-style: italic;
-}
+		body:before {
+				background-color: #FCF8E3;
+				border-bottom: 1px solid #FBEED5;
+				border-left: 1px solid #FBEED5;
+				color: #C09853;
+				font: small-caption;
+				padding: 3px 6px;
+				pointer-events: none;
+				position: fixed;
+				right: 0;
+				top: 0;
+				z-index: 100;
+		}
 
-/* END Medium Italic */
-/* BEGIN Bold */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
-	font-weight: 700;
-	font-style: normal;
-}
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
-	font-weight: bold;
-	font-style: normal;
-}
+		@media (min-width: 20em) {
+				body:before {
+						content: "mobile \2265   320px (20em)";
+				}
+		}
 
-/* END Bold */
-body:before {
-	display: none;
-}
-body:before {
-	background-color: #FCF8E3;
-	border-bottom: 1px solid #FBEED5;
-	border-left: 1px solid #FBEED5;
-	color: #C09853;
-	font: small-caption;
-	padding: 3px 6px;
-	pointer-events: none;
-	position: fixed;
-	right: 0;
-	top: 0;
-	z-index: 100;
-}
-@media (min-width: 20em) {
-body:before {
-			content: "mobile \2265   320px (20em)";
-}
-}
-@media (min-width: 46.25em) {
-body:before {
-			content: "tablet \2265   740px (46.25em)";
-}
-}
-@media (min-width: 61.25em) {
-body:before {
-			content: "desktop \2265   980px (61.25em)";
-}
-}
-@media (min-width: 81.25em) {
-body:before {
-			content: "wide \2265   1300px (81.25em)";
-}
-}
-@media (min-width: 85.4375em) {
-body:before {
-			content: "stopVWBreakpoint \2265   1367px (85.4375em)";
-}
-}
-@media (min-width: 120em) {
-body:before {
-			content: "tiktokenWide \2265   1920px (120em)";
-}
-}
-@media (min-width: 62.5em) {
-body:before {
-			content: "tiktokenTablet \2265   1000px (62.5em)";
-}
-}
-@media (min-width: 40em) {
-body:before {
-			content: "tiktokenMobile \2265   640px (40em)";
-}
-}
-.appButton {
-	display: inline-block;
-	padding: 1.19792vw 3.02083vw;
-	background: #CE5B78;
-	color: #ffffff;
-	outline: none;
-	border: none;
-	border-radius: 0.26042vw;
-	cursor: pointer;
-	font-size: 0.9375vw;
-	font-family: Roboto;
-	font-weight: 500;
-	-webkit-box-shadow: 0vw 0.10417vw 0.26042vw rgba(44, 44, 44, 0.4);
-					box-shadow: 0vw 0.10417vw 0.26042vw rgba(44, 44, 44, 0.4);
-}
-@media (max-width: 85.4275em) {
-.appButton {
-			font-size: 17.64706px;
-}
-}
-.appButton.transparent {
-		-webkit-box-shadow: none;
-						box-shadow: none;
-		background: transparent;
-		color: #CE5B78;
-		padding: 0.57292vw 1.51042vw;
-}
-.appButton.transparent.disabled {
-			background: transparent;
-			color: #f0f0f0;
-}
-.appButton.transparent.disabled:hover, .appButton.transparent.disabled:active {
+		@media (min-width: 46.25em) {
+				body:before {
+						content: "tablet \2265   740px (46.25em)";
+				}
+		}
+
+		@media (min-width: 61.25em) {
+				body:before {
+						content: "desktop \2265   980px (61.25em)";
+				}
+		}
+
+		@media (min-width: 81.25em) {
+				body:before {
+						content: "wide \2265   1300px (81.25em)";
+				}
+		}
+
+		@media (min-width: 85.4375em) {
+				body:before {
+						content: "stopVWBreakpoint \2265   1367px (85.4375em)";
+				}
+		}
+
+		@media (min-width: 120em) {
+				body:before {
+						content: "tiktokenWide \2265   1920px (120em)";
+				}
+		}
+
+		@media (min-width: 62.5em) {
+				body:before {
+						content: "tiktokenTablet \2265   1000px (62.5em)";
+				}
+		}
+
+		@media (min-width: 40em) {
+				body:before {
+						content: "tiktokenMobile \2265   640px (40em)";
+				}
+		}
+
+		body {
+				padding: 0;
+				margin: 0;
+		}
+
+		.main-button {
+				background: #D65076;
+				color: white;
+				font-size: 1.19792vw;
+		}
+
+		.text-blue-01 {
+				font-size: 0.9375vw;
+				color: #92A8D1;
+		}
+
+		.text-blue-02 {
+				font-size: 1.25vw;
+				color: #92A8D1;
+		}
+
+		.text-blue-03 {
+				font-size: 1.66667vw;
+				color: #92A8D1;
+		}
+
+		#app {
+				font-family: 'Avenir', Helvetica, Arial, sans-serif;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				text-align: center;
+				color: #2c3e50;
+		}
+
+		#nav {
+				padding: 30px;
+		}
+
+		#nav a {
+				font-weight: bold;
+				color: #2c3e50;
+		}
+
+		#nav a.router-link-exact-active {
+				color: #42b983;
+		}
+
+		.list-item {
+				cursor: pointer;
+		}
+
+		.list-title:hover {
+				color: #CE5B78;
+		}
+
+		.column {
+				-webkit-box-orient: vertical;
+				-webkit-box-direction: normal;
+				-ms-flex-direction: column;
+				flex-direction: column;
+		}
+
+		.mini {
+				font-size: 0.9375vw;
+		}
+
+		.flex-center {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				justify-content: center;
+		}
+
+		.flex-column {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				justify-content: center;
+				-webkit-box-orient: vertical;
+				-webkit-box-direction: normal;
+				-ms-flex-direction: column;
+				flex-direction: column;
+		}
+
+		.flex1 {
+				width: 45%;
+		}
+
+		.wrap {
+				-ms-flex-wrap: wrap;
+				flex-wrap: wrap;
+		}
+
+		.cursor {
+				cursor: pointer;
+		}
+
+		.delete-icon {
+				cursor: pointer;
+				position: absolute;
+				top: 1vw;
+				right: 1vw;
+		}
+
+		.clickable {
+				cursor: pointer;
+				padding: .1vw 1vw;
+				min-width: 3vw;
+				border-radius: .2vw;
+				border: 1px solid black;
+				margin: .1vw 1vw;
+		}
+
+		.clickable.but {
+				min-width: 5vw;
+				min-height: 2vw;
+		}
+
+		.clickable:hover {
+				-webkit-transform: scale(1.02);
+				transform: scale(1.02);
+		}
+
+		.fixed-items>div {
+				-webkit-box-flex: 1;
+				-ms-flex: 1;
+				flex: 1;
+				line-height: 100%;
+		}
+
+		.wrap-form input,
+		.wrap-form textarea {
+				padding: 9px;
+				border: solid 1px #E5E5E5;
+				outline: 0;
+				font: normal 13px/100% Verdana, Tahoma, sans-serif;
+				width: 100%;
+				background: #FFFFFF;
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+		}
+
+		.wrap-form textarea {
+				width: 100%;
+				height: 150px;
+				line-height: 150%;
+		}
+
+		.wrap-form input:hover,
+		.wrap-form textarea:hover,
+		.wrap-form input:focus,
+		.wrap-form textarea:focus {
+				border-color: #C9C9C9;
+		}
+
+		.wrap-form label {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				margin-left: 0px;
+				color: #999999;
+		}
+
+		.wrap-form button,
+		.wrap-form input[type="submit"] {
+				width: auto;
+				padding: 9px 15px;
+				background: #cccccc;
+				border: 0;
+				font-size: 14px;
+				color: #FFFFFF;
+		}
+
+		.block {
+				display: block;
+		}
+
+		.inline {
+				display: inline-block;
+		}
+
+		.alingn-center {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-align: center;
+				-ms-flex-align: center;
+				align-items: center;
+		}
+
+		.flex-row {
+				width: 100%;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-align: start;
+				-ms-flex-align: start;
+				align-items: flex-start;
+		}
+
+		.flex-container {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+		}
+
+		@media (min-width: 85.4375em) {
+				.showUntilBreakpoint {
+						display: none;
+				}
+		}
+
+		.absolute-node {
+				position: absolute;
+				top: 0;
+				left: 0;
+		}
+
+		.no-left {
+				padding-left: 0 !important;
+		}
+
+		.hide-border {
+				border: 0 !important;
+		}
+
+		.no-right {
+				padding-right: 0 !important;
+		}
+
+		.input-margins {
+				margin-top: 0.26042vw;
+				margin-bottom: 0.26042vw;
+		}
+
+		.dashed-border {
+				border-bottom: 0.05208vw dashed !important;
+		}
+
+		.input-sample {
+				word-break: break-word;
+				display: inline-block;
+				width: 9.21875vw;
+				padding-bottom: 0.20833vw;
+				font-size: 0.72917vw;
+				outline: none;
+				border-top: 0;
+				border-left: 0;
+				border-right: 0;
+				border-bottom: 0.05208vw solid #2c2c2c;
+				padding-top: 0.41667vw;
+				margin-top: 0.26042vw;
+				margin-bottom: 0.26042vw;
+		}
+
+		@media (max-width: 85.4275em) {
+				.input-sample {
+						font-size: 13.72549px;
+				}
+		}
+
+		.input-sample:focus,
+		.input-sample:active {
+				border-bottom: 0.05208vw solid #2c2c2c;
+		}
+
+		.input-sample::-webkit-input-placeholder {
+				font-family: Roboto;
+				font-weight: 300;
+		}
+
+		.input-sample::-moz-placeholder {
+				font-family: Roboto;
+				font-weight: 300;
+		}
+
+		.input-sample:-ms-input-placeholder {
+				font-family: Roboto;
+				font-weight: 300;
+		}
+
+		.input-sample::-ms-input-placeholder {
+				font-family: Roboto;
+				font-weight: 300;
+		}
+
+		.input-sample::placeholder {
+				font-family: Roboto;
+				font-weight: 300;
+		}
+
+		.input-sample:focus,
+		.input-sample:active {
+				border-bottom: 0;
+		}
+
+		.text-default {
+				text-align: left;
+				border-bottom: 0;
+		}
+
+		.absolute-parent {
+				position: relative;
+				display: inline-block;
+		}
+
+		.inline-children {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-pack: row;
+				-ms-flex-pack: row;
+				justify-content: row;
+		}
+
+		.inline-children>div,
+		.inline-children>span,
+		.inline-children>svg,
+		.inline-children>button {
+				display: inline-block;
+		}
+
+		.pointer {
+				cursor: pointer;
+		}
+
+		.font-regular {
+				font-size: 0.83333vw;
+				font-family: Roboto;
+				font-weight: 300;
+		}
+
+		@media (max-width: 85.4275em) {
+				.font-regular {
+						font-size: 15.68627px;
+				}
+		}
+
+		.label-style {
+				display: inline-block;
+				cursor: pointer;
+				margin-right: 0.83333vw;
+				font-size: 0.83333vw;
+				font-family: Roboto;
+				font-weight: 500;
+				margin-top: 0.26042vw;
+				margin-bottom: 0.26042vw;
+				padding-bottom: 0.20833vw;
+				padding-top: 0.41667vw;
+				width: 8.17708vw;
+		}
+
+		@media (max-width: 85.4275em) {
+				.label-style {
+						font-size: 15.68627px;
+				}
+		}
+
+		.bottom-empty-1 {
+				margin-bottom: 8.85417vw;
+		}
+
+		.bottom-space-2 {
+				margin-bottom: 10.41667vw;
+		}
+		</style>
+		<style type="text/css">
+		@charset "UTF-8";
+
+		.red-natural-color {
+				color: #ce251b;
+				fill: #ce251b;
+		}
+
+		/* BEGIN Light */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Light/Roboto-Light.woff2?v=2.137") format("woff2"), url("/fonts/Light/Roboto-Light.woff?v=2.137") format("woff");
+				font-weight: 300;
+				font-style: normal;
+		}
+
+		/* END Light */
+		/* BEGIN Regular */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
+				font-weight: 400;
+				font-style: normal;
+		}
+
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
+				font-weight: normal;
+				font-style: normal;
+		}
+
+		/* END Regular */
+		/* BEGIN Medium */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Medium/Roboto-Medium.woff2?v=2.137") format("woff2"), url("/fonts/Medium/Roboto-Medium.woff?v=2.137") format("woff");
+				font-weight: 500;
+				font-style: normal;
+		}
+
+		/* END Medium */
+		/* BEGIN Medium Italic */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/MediumItalic/Roboto-MediumItalic.woff2?v=2.137") format("woff2"), url("/fonts/MediumItalic/Roboto-MediumItalic.woff?v=2.137") format("woff");
+				font-weight: 500;
+				font-style: italic;
+		}
+
+		/* END Medium Italic */
+		/* BEGIN Bold */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
+				font-weight: 700;
+				font-style: normal;
+		}
+
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
+				font-weight: bold;
+				font-style: normal;
+		}
+
+		/* END Bold */
+		body:before {
+				display: none;
+		}
+
+		body:before {
+				background-color: #FCF8E3;
+				border-bottom: 1px solid #FBEED5;
+				border-left: 1px solid #FBEED5;
+				color: #C09853;
+				font: small-caption;
+				padding: 3px 6px;
+				pointer-events: none;
+				position: fixed;
+				right: 0;
+				top: 0;
+				z-index: 100;
+		}
+
+		@media (min-width: 20em) {
+				body:before {
+						content: "mobile \2265   320px (20em)";
+				}
+		}
+
+		@media (min-width: 46.25em) {
+				body:before {
+						content: "tablet \2265   740px (46.25em)";
+				}
+		}
+
+		@media (min-width: 61.25em) {
+				body:before {
+						content: "desktop \2265   980px (61.25em)";
+				}
+		}
+
+		@media (min-width: 81.25em) {
+				body:before {
+						content: "wide \2265   1300px (81.25em)";
+				}
+		}
+
+		@media (min-width: 85.4375em) {
+				body:before {
+						content: "stopVWBreakpoint \2265   1367px (85.4375em)";
+				}
+		}
+
+		@media (min-width: 120em) {
+				body:before {
+						content: "tiktokenWide \2265   1920px (120em)";
+				}
+		}
+
+		@media (min-width: 62.5em) {
+				body:before {
+						content: "tiktokenTablet \2265   1000px (62.5em)";
+				}
+		}
+
+		@media (min-width: 40em) {
+				body:before {
+						content: "tiktokenMobile \2265   640px (40em)";
+				}
+		}
+
+		.appButton {
+				display: inline-block;
+				padding: 1.19792vw 3.02083vw;
+				background: #CE5B78;
+				color: #ffffff;
+				outline: none;
+				border: none;
+				border-radius: 0.26042vw;
+				cursor: pointer;
+				font-size: 0.9375vw;
+				font-family: Roboto;
+				font-weight: 500;
+				-webkit-box-shadow: 0vw 0.10417vw 0.26042vw rgba(44, 44, 44, 0.4);
+				box-shadow: 0vw 0.10417vw 0.26042vw rgba(44, 44, 44, 0.4);
+		}
+
+		@media (max-width: 85.4275em) {
+				.appButton {
+						font-size: 17.64706px;
+				}
+		}
+
+		.appButton.transparent {
 				-webkit-box-shadow: none;
-								box-shadow: none;
+				box-shadow: none;
+				background: transparent;
+				color: #CE5B78;
+				padding: 0.57292vw 1.51042vw;
+		}
+
+		.appButton.transparent.disabled {
+				background: transparent;
+				color: #f0f0f0;
+		}
+
+		.appButton.transparent.disabled:hover,
+		.appButton.transparent.disabled:active {
+				-webkit-box-shadow: none;
+				box-shadow: none;
 				background: transparent;
 				color: #2c2c2c;
-}
-.appButton.transparent:hover, .appButton.transparent:active {
-			-webkit-box-shadow: none;
-							box-shadow: none;
-			background: transparent;
-			color: #bb551e;
-}
-.appButton.grey {
-		color: #999999;
-}
-.appButton.disabled {
-		background: #c1c1c1;
-		color: #ffffff;
-}
-.appButton.disabled:hover, .appButton.disabled:active {
-			-webkit-box-shadow: none;
-							box-shadow: none;
-			background: #f0f0f0;
-			color: #2c2c2c;
-}
-.appButton.dashed {
-		border-bottom: 1px dashed #2c2c2c;
-		padding-right: 0;
-		padding-left: 0;
-}
-.appButton.dashed:hover, .appButton.dashed:active {
-			border-bottom: 1px dashed #2c2c2c;
-}
-.appButton.locked {
-		-webkit-box-shadow: none;
-						box-shadow: none;
-		background: #f0f0f0;
-		color: #2c2c2c;
-}
-.appButton.locked:hover, .appButton.locked:active {
-			-webkit-box-shadow: none;
-							box-shadow: none;
-			background: #f0f0f0;
-			color: #2c2c2c;
-}
-.appButton:hover, .appButton:active {
-		-webkit-box-shadow: 0vw 0.10417vw 0.26042vw rgba(44, 44, 44, 0.7);
-						box-shadow: 0vw 0.10417vw 0.26042vw rgba(44, 44, 44, 0.7);
-}
-.appButton.noLP {
-		padding-left: 0;
-}
-</style><style type="text/css">.app-icon {
-	max-width: 2vw;
-}
-</style><style type="text/css">@charset "UTF-8";
-.red-natural-color {
-	color: #ce251b;
-	fill: #ce251b;
-}
+		}
 
-/* BEGIN Light */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Light/Roboto-Light.woff2?v=2.137") format("woff2"), url("/fonts/Light/Roboto-Light.woff?v=2.137") format("woff");
-	font-weight: 300;
-	font-style: normal;
-}
+		.appButton.transparent:hover,
+		.appButton.transparent:active {
+				-webkit-box-shadow: none;
+				box-shadow: none;
+				background: transparent;
+				color: #bb551e;
+		}
 
-/* END Light */
-/* BEGIN Regular */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
-	font-weight: 400;
-	font-style: normal;
-}
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
-	font-weight: normal;
-	font-style: normal;
-}
+		.appButton.grey {
+				color: #999999;
+		}
 
-/* END Regular */
-/* BEGIN Medium */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Medium/Roboto-Medium.woff2?v=2.137") format("woff2"), url("/fonts/Medium/Roboto-Medium.woff?v=2.137") format("woff");
-	font-weight: 500;
-	font-style: normal;
-}
+		.appButton.disabled {
+				background: #c1c1c1;
+				color: #ffffff;
+		}
 
-/* END Medium */
-/* BEGIN Medium Italic */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/MediumItalic/Roboto-MediumItalic.woff2?v=2.137") format("woff2"), url("/fonts/MediumItalic/Roboto-MediumItalic.woff?v=2.137") format("woff");
-	font-weight: 500;
-	font-style: italic;
-}
+		.appButton.disabled:hover,
+		.appButton.disabled:active {
+				-webkit-box-shadow: none;
+				box-shadow: none;
+				background: #f0f0f0;
+				color: #2c2c2c;
+		}
 
-/* END Medium Italic */
-/* BEGIN Bold */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
-	font-weight: 700;
-	font-style: normal;
-}
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
-	font-weight: bold;
-	font-style: normal;
-}
+		.appButton.dashed {
+				border-bottom: 1px dashed #2c2c2c;
+				padding-right: 0;
+				padding-left: 0;
+		}
 
-/* END Bold */
-body:before {
-	display: none;
-}
-body:before {
-	background-color: #FCF8E3;
-	border-bottom: 1px solid #FBEED5;
-	border-left: 1px solid #FBEED5;
-	color: #C09853;
-	font: small-caption;
-	padding: 3px 6px;
-	pointer-events: none;
-	position: fixed;
-	right: 0;
-	top: 0;
-	z-index: 100;
-}
-@media (min-width: 20em) {
-body:before {
-			content: "mobile \2265   320px (20em)";
-}
-}
-@media (min-width: 46.25em) {
-body:before {
-			content: "tablet \2265   740px (46.25em)";
-}
-}
-@media (min-width: 61.25em) {
-body:before {
-			content: "desktop \2265   980px (61.25em)";
-}
-}
-@media (min-width: 81.25em) {
-body:before {
-			content: "wide \2265   1300px (81.25em)";
-}
-}
-@media (min-width: 85.4375em) {
-body:before {
-			content: "stopVWBreakpoint \2265   1367px (85.4375em)";
-}
-}
-@media (min-width: 120em) {
-body:before {
-			content: "tiktokenWide \2265   1920px (120em)";
-}
-}
-@media (min-width: 62.5em) {
-body:before {
-			content: "tiktokenTablet \2265   1000px (62.5em)";
-}
-}
-@media (min-width: 40em) {
-body:before {
-			content: "tiktokenMobile \2265   640px (40em)";
-}
-}
-.items-tooltip-wrapper {
-	font-size: 0.9375vw;
-	z-index: 2000;
-	background: white;
-	padding: 2vw;
-	border: 1px solid black;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	-webkit-transform: translate(-50%, -50%);
-					transform: translate(-50%, -50%);
-}
-.items-tooltip-wrapper .items-tooltip {
-		-webkit-box-orient: vertical;
-		-webkit-box-direction: normal;
+		.appButton.dashed:hover,
+		.appButton.dashed:active {
+				border-bottom: 1px dashed #2c2c2c;
+		}
+
+		.appButton.locked {
+				-webkit-box-shadow: none;
+				box-shadow: none;
+				background: #f0f0f0;
+				color: #2c2c2c;
+		}
+
+		.appButton.locked:hover,
+		.appButton.locked:active {
+				-webkit-box-shadow: none;
+				box-shadow: none;
+				background: #f0f0f0;
+				color: #2c2c2c;
+		}
+
+		.appButton:hover,
+		.appButton:active {
+				-webkit-box-shadow: 0vw 0.10417vw 0.26042vw rgba(44, 44, 44, 0.7);
+				box-shadow: 0vw 0.10417vw 0.26042vw rgba(44, 44, 44, 0.7);
+		}
+
+		.appButton.noLP {
+				padding-left: 0;
+		}
+		</style>
+		<style type="text/css">
+		.app-icon {
+				max-width: 2vw;
+		}
+		</style>
+		<style type="text/css">
+		@charset "UTF-8";
+
+		.red-natural-color {
+				color: #ce251b;
+				fill: #ce251b;
+		}
+
+		/* BEGIN Light */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Light/Roboto-Light.woff2?v=2.137") format("woff2"), url("/fonts/Light/Roboto-Light.woff?v=2.137") format("woff");
+				font-weight: 300;
+				font-style: normal;
+		}
+
+		/* END Light */
+		/* BEGIN Regular */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
+				font-weight: 400;
+				font-style: normal;
+		}
+
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
+				font-weight: normal;
+				font-style: normal;
+		}
+
+		/* END Regular */
+		/* BEGIN Medium */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Medium/Roboto-Medium.woff2?v=2.137") format("woff2"), url("/fonts/Medium/Roboto-Medium.woff?v=2.137") format("woff");
+				font-weight: 500;
+				font-style: normal;
+		}
+
+		/* END Medium */
+		/* BEGIN Medium Italic */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/MediumItalic/Roboto-MediumItalic.woff2?v=2.137") format("woff2"), url("/fonts/MediumItalic/Roboto-MediumItalic.woff?v=2.137") format("woff");
+				font-weight: 500;
+				font-style: italic;
+		}
+
+		/* END Medium Italic */
+		/* BEGIN Bold */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
+				font-weight: 700;
+				font-style: normal;
+		}
+
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
+				font-weight: bold;
+				font-style: normal;
+		}
+
+		/* END Bold */
+		body:before {
+				display: none;
+		}
+
+		body:before {
+				background-color: #FCF8E3;
+				border-bottom: 1px solid #FBEED5;
+				border-left: 1px solid #FBEED5;
+				color: #C09853;
+				font: small-caption;
+				padding: 3px 6px;
+				pointer-events: none;
+				position: fixed;
+				right: 0;
+				top: 0;
+				z-index: 100;
+		}
+
+		@media (min-width: 20em) {
+				body:before {
+						content: "mobile \2265   320px (20em)";
+				}
+		}
+
+		@media (min-width: 46.25em) {
+				body:before {
+						content: "tablet \2265   740px (46.25em)";
+				}
+		}
+
+		@media (min-width: 61.25em) {
+				body:before {
+						content: "desktop \2265   980px (61.25em)";
+				}
+		}
+
+		@media (min-width: 81.25em) {
+				body:before {
+						content: "wide \2265   1300px (81.25em)";
+				}
+		}
+
+		@media (min-width: 85.4375em) {
+				body:before {
+						content: "stopVWBreakpoint \2265   1367px (85.4375em)";
+				}
+		}
+
+		@media (min-width: 120em) {
+				body:before {
+						content: "tiktokenWide \2265   1920px (120em)";
+				}
+		}
+
+		@media (min-width: 62.5em) {
+				body:before {
+						content: "tiktokenTablet \2265   1000px (62.5em)";
+				}
+		}
+
+		@media (min-width: 40em) {
+				body:before {
+						content: "tiktokenMobile \2265   640px (40em)";
+				}
+		}
+
+		.items-tooltip-wrapper {
+				font-size: 0.9375vw;
+				z-index: 2000;
+				background: white;
+				padding: 2vw;
+				border: 1px solid black;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				-webkit-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+		}
+
+		.items-tooltip-wrapper .items-tooltip {
+				-webkit-box-orient: vertical;
+				-webkit-box-direction: normal;
 				-ms-flex-direction: column;
-						flex-direction: column;
-		width: 40vw;
-		-ms-flex-wrap: wrap;
+				flex-direction: column;
+				width: 40vw;
+				-ms-flex-wrap: wrap;
 				flex-wrap: wrap;
-		-webkit-box-pack: center;
+				-webkit-box-pack: center;
 				-ms-flex-pack: center;
-						justify-content: center;
-		height: 100%;
-}
-.items-tooltip-wrapper .clickable {
-		border: none;
-}
-</style><style type="text/css">@charset "UTF-8";
-.red-natural-color {
-	color: #ce251b;
-	fill: #ce251b;
-}
+				justify-content: center;
+				height: 100%;
+		}
 
-/* BEGIN Light */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Light/Roboto-Light.woff2?v=2.137") format("woff2"), url("/fonts/Light/Roboto-Light.woff?v=2.137") format("woff");
-	font-weight: 300;
-	font-style: normal;
-}
+		.items-tooltip-wrapper .clickable {
+				border: none;
+		}
+		</style>
+		<style type="text/css">
+		@charset "UTF-8";
 
-/* END Light */
-/* BEGIN Regular */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
-	font-weight: 400;
-	font-style: normal;
-}
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
-	font-weight: normal;
-	font-style: normal;
-}
+		.red-natural-color {
+				color: #ce251b;
+				fill: #ce251b;
+		}
 
-/* END Regular */
-/* BEGIN Medium */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Medium/Roboto-Medium.woff2?v=2.137") format("woff2"), url("/fonts/Medium/Roboto-Medium.woff?v=2.137") format("woff");
-	font-weight: 500;
-	font-style: normal;
-}
+		/* BEGIN Light */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Light/Roboto-Light.woff2?v=2.137") format("woff2"), url("/fonts/Light/Roboto-Light.woff?v=2.137") format("woff");
+				font-weight: 300;
+				font-style: normal;
+		}
 
-/* END Medium */
-/* BEGIN Medium Italic */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/MediumItalic/Roboto-MediumItalic.woff2?v=2.137") format("woff2"), url("/fonts/MediumItalic/Roboto-MediumItalic.woff?v=2.137") format("woff");
-	font-weight: 500;
-	font-style: italic;
-}
+		/* END Light */
+		/* BEGIN Regular */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
+				font-weight: 400;
+				font-style: normal;
+		}
 
-/* END Medium Italic */
-/* BEGIN Bold */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
-	font-weight: 700;
-	font-style: normal;
-}
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
-	font-weight: bold;
-	font-style: normal;
-}
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
+				font-weight: normal;
+				font-style: normal;
+		}
 
-/* END Bold */
-body:before {
-	display: none;
-}
-body:before {
-	background-color: #FCF8E3;
-	border-bottom: 1px solid #FBEED5;
-	border-left: 1px solid #FBEED5;
-	color: #C09853;
-	font: small-caption;
-	padding: 3px 6px;
-	pointer-events: none;
-	position: fixed;
-	right: 0;
-	top: 0;
-	z-index: 100;
-}
-@media (min-width: 20em) {
-body:before {
-			content: "mobile \2265   320px (20em)";
-}
-}
-@media (min-width: 46.25em) {
-body:before {
-			content: "tablet \2265   740px (46.25em)";
-}
-}
-@media (min-width: 61.25em) {
-body:before {
-			content: "desktop \2265   980px (61.25em)";
-}
-}
-@media (min-width: 81.25em) {
-body:before {
-			content: "wide \2265   1300px (81.25em)";
-}
-}
-@media (min-width: 85.4375em) {
-body:before {
-			content: "stopVWBreakpoint \2265   1367px (85.4375em)";
-}
-}
-@media (min-width: 120em) {
-body:before {
-			content: "tiktokenWide \2265   1920px (120em)";
-}
-}
-@media (min-width: 62.5em) {
-body:before {
-			content: "tiktokenTablet \2265   1000px (62.5em)";
-}
-}
-@media (min-width: 40em) {
-body:before {
-			content: "tiktokenMobile \2265   640px (40em)";
-}
-}
-.appNotifications {
-	padding: 1.30208vw;
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	font-size: 0.83333vw;
-	font-family: Roboto;
-	font-weight: 500;
-	color: #ffffff;
-	text-align: center;
-}
-@media (max-width: 85.4275em) {
-.appNotifications {
-			font-size: 15.68627px;
-}
-}
-.appNotifications.dangerClass {
-		background: #ce251b;
-}
-.appNotifications.waitClass {
-		background: #ce5c1f;
-}
-.appNotifications.successClass {
-		background: #368429;
-}
-</style><style type="text/css">@charset "UTF-8";
-.red-natural-color {
-	color: #ce251b;
-	fill: #ce251b;
-}
+		/* END Regular */
+		/* BEGIN Medium */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Medium/Roboto-Medium.woff2?v=2.137") format("woff2"), url("/fonts/Medium/Roboto-Medium.woff?v=2.137") format("woff");
+				font-weight: 500;
+				font-style: normal;
+		}
 
-/* BEGIN Light */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Light/Roboto-Light.woff2?v=2.137") format("woff2"), url("/fonts/Light/Roboto-Light.woff?v=2.137") format("woff");
-	font-weight: 300;
-	font-style: normal;
-}
+		/* END Medium */
+		/* BEGIN Medium Italic */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/MediumItalic/Roboto-MediumItalic.woff2?v=2.137") format("woff2"), url("/fonts/MediumItalic/Roboto-MediumItalic.woff?v=2.137") format("woff");
+				font-weight: 500;
+				font-style: italic;
+		}
 
-/* END Light */
-/* BEGIN Regular */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
-	font-weight: 400;
-	font-style: normal;
-}
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
-	font-weight: normal;
-	font-style: normal;
-}
+		/* END Medium Italic */
+		/* BEGIN Bold */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
+				font-weight: 700;
+				font-style: normal;
+		}
 
-/* END Regular */
-/* BEGIN Medium */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Medium/Roboto-Medium.woff2?v=2.137") format("woff2"), url("/fonts/Medium/Roboto-Medium.woff?v=2.137") format("woff");
-	font-weight: 500;
-	font-style: normal;
-}
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
+				font-weight: bold;
+				font-style: normal;
+		}
 
-/* END Medium */
-/* BEGIN Medium Italic */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/MediumItalic/Roboto-MediumItalic.woff2?v=2.137") format("woff2"), url("/fonts/MediumItalic/Roboto-MediumItalic.woff?v=2.137") format("woff");
-	font-weight: 500;
-	font-style: italic;
-}
+		/* END Bold */
+		body:before {
+				display: none;
+		}
 
-/* END Medium Italic */
-/* BEGIN Bold */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
-	font-weight: 700;
-	font-style: normal;
-}
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
-	font-weight: bold;
-	font-style: normal;
-}
+		body:before {
+				background-color: #FCF8E3;
+				border-bottom: 1px solid #FBEED5;
+				border-left: 1px solid #FBEED5;
+				color: #C09853;
+				font: small-caption;
+				padding: 3px 6px;
+				pointer-events: none;
+				position: fixed;
+				right: 0;
+				top: 0;
+				z-index: 100;
+		}
 
-/* END Bold */
-body:before {
-	display: none;
-}
-body:before {
-	background-color: #FCF8E3;
-	border-bottom: 1px solid #FBEED5;
-	border-left: 1px solid #FBEED5;
-	color: #C09853;
-	font: small-caption;
-	padding: 3px 6px;
-	pointer-events: none;
-	position: fixed;
-	right: 0;
-	top: 0;
-	z-index: 100;
-}
-@media (min-width: 20em) {
-body:before {
-			content: "mobile \2265   320px (20em)";
-}
-}
-@media (min-width: 46.25em) {
-body:before {
-			content: "tablet \2265   740px (46.25em)";
-}
-}
-@media (min-width: 61.25em) {
-body:before {
-			content: "desktop \2265   980px (61.25em)";
-}
-}
-@media (min-width: 81.25em) {
-body:before {
-			content: "wide \2265   1300px (81.25em)";
-}
-}
-@media (min-width: 85.4375em) {
-body:before {
-			content: "stopVWBreakpoint \2265   1367px (85.4375em)";
-}
-}
-@media (min-width: 120em) {
-body:before {
-			content: "tiktokenWide \2265   1920px (120em)";
-}
-}
-@media (min-width: 62.5em) {
-body:before {
-			content: "tiktokenTablet \2265   1000px (62.5em)";
-}
-}
-@media (min-width: 40em) {
-body:before {
-			content: "tiktokenMobile \2265   640px (40em)";
-}
-}
-.modalClose {
-	cursor: pointer;
-	fill: #ce251b;
-	width: 1.04167vw;
-	-webkit-transform: translateY(-12%);
-					transform: translateY(-12%);
-	position: absolute;
-	top: 1.77083vw;
-	right: 1.77083vw;
-}
-.modal-mask {
-	position: fixed;
-	z-index: 9998;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(206, 122, 31, 0.12);
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-transition: opacity .3s ease;
-	transition: opacity .3s ease;
-	-webkit-box-align: center;
-			-ms-flex-align: center;
-					align-items: center;
-	-webkit-box-pack: center;
-			-ms-flex-pack: center;
-					justify-content: center;
-}
-.modal-wrapper {
-	position: relative;
-}
-.modal-container {
-	padding: 1.77083vw 1.77083vw;
-	width: auto;
-	margin: 0px auto;
-	background-color: white;
-	-webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
-					box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
-	-webkit-transition: all .3s ease;
-	transition: all .3s ease;
-	font-family: Helvetica, Arial, sans-serif;
-	max-height: 90vh;
-	overflow-Y: scroll;
-}
-.modal-container.firefox {
-		overflow-y: auto;
-}
-.modal-container::-webkit-scrollbar {
-		display: none;
-		-ms-overflow-style: none;
-		overflow: -moz-scrollbars-none;
-}
-.modal-header {
-	margin-top: 0;
-	color: #CE5B78;
-	font-size: 1.04167vw;
-	text-transform: uppercase;
-	font-family: Roboto;
-	font-weight: 500;
-	text-align: left;
-}
-@media (max-width: 85.4275em) {
-.modal-header {
-			font-size: 19.60784px;
-}
-}
-.modal-default-button {
-	float: right;
-}
+		@media (min-width: 20em) {
+				body:before {
+						content: "mobile \2265   320px (20em)";
+				}
+		}
 
-/*
+		@media (min-width: 46.25em) {
+				body:before {
+						content: "tablet \2265   740px (46.25em)";
+				}
+		}
+
+		@media (min-width: 61.25em) {
+				body:before {
+						content: "desktop \2265   980px (61.25em)";
+				}
+		}
+
+		@media (min-width: 81.25em) {
+				body:before {
+						content: "wide \2265   1300px (81.25em)";
+				}
+		}
+
+		@media (min-width: 85.4375em) {
+				body:before {
+						content: "stopVWBreakpoint \2265   1367px (85.4375em)";
+				}
+		}
+
+		@media (min-width: 120em) {
+				body:before {
+						content: "tiktokenWide \2265   1920px (120em)";
+				}
+		}
+
+		@media (min-width: 62.5em) {
+				body:before {
+						content: "tiktokenTablet \2265   1000px (62.5em)";
+				}
+		}
+
+		@media (min-width: 40em) {
+				body:before {
+						content: "tiktokenMobile \2265   640px (40em)";
+				}
+		}
+
+		.appNotifications {
+				padding: 1.30208vw;
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				font-size: 0.83333vw;
+				font-family: Roboto;
+				font-weight: 500;
+				color: #ffffff;
+				text-align: center;
+		}
+
+		@media (max-width: 85.4275em) {
+				.appNotifications {
+						font-size: 15.68627px;
+				}
+		}
+
+		.appNotifications.dangerClass {
+				background: #ce251b;
+		}
+
+		.appNotifications.waitClass {
+				background: #ce5c1f;
+		}
+
+		.appNotifications.successClass {
+				background: #368429;
+		}
+		</style>
+		<style type="text/css">
+		@charset "UTF-8";
+
+		.red-natural-color {
+				color: #ce251b;
+				fill: #ce251b;
+		}
+
+		/* BEGIN Light */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Light/Roboto-Light.woff2?v=2.137") format("woff2"), url("/fonts/Light/Roboto-Light.woff?v=2.137") format("woff");
+				font-weight: 300;
+				font-style: normal;
+		}
+
+		/* END Light */
+		/* BEGIN Regular */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
+				font-weight: 400;
+				font-style: normal;
+		}
+
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
+				font-weight: normal;
+				font-style: normal;
+		}
+
+		/* END Regular */
+		/* BEGIN Medium */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Medium/Roboto-Medium.woff2?v=2.137") format("woff2"), url("/fonts/Medium/Roboto-Medium.woff?v=2.137") format("woff");
+				font-weight: 500;
+				font-style: normal;
+		}
+
+		/* END Medium */
+		/* BEGIN Medium Italic */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/MediumItalic/Roboto-MediumItalic.woff2?v=2.137") format("woff2"), url("/fonts/MediumItalic/Roboto-MediumItalic.woff?v=2.137") format("woff");
+				font-weight: 500;
+				font-style: italic;
+		}
+
+		/* END Medium Italic */
+		/* BEGIN Bold */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
+				font-weight: 700;
+				font-style: normal;
+		}
+
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
+				font-weight: bold;
+				font-style: normal;
+		}
+
+		/* END Bold */
+		body:before {
+				display: none;
+		}
+
+		body:before {
+				background-color: #FCF8E3;
+				border-bottom: 1px solid #FBEED5;
+				border-left: 1px solid #FBEED5;
+				color: #C09853;
+				font: small-caption;
+				padding: 3px 6px;
+				pointer-events: none;
+				position: fixed;
+				right: 0;
+				top: 0;
+				z-index: 100;
+		}
+
+		@media (min-width: 20em) {
+				body:before {
+						content: "mobile \2265   320px (20em)";
+				}
+		}
+
+		@media (min-width: 46.25em) {
+				body:before {
+						content: "tablet \2265   740px (46.25em)";
+				}
+		}
+
+		@media (min-width: 61.25em) {
+				body:before {
+						content: "desktop \2265   980px (61.25em)";
+				}
+		}
+
+		@media (min-width: 81.25em) {
+				body:before {
+						content: "wide \2265   1300px (81.25em)";
+				}
+		}
+
+		@media (min-width: 85.4375em) {
+				body:before {
+						content: "stopVWBreakpoint \2265   1367px (85.4375em)";
+				}
+		}
+
+		@media (min-width: 120em) {
+				body:before {
+						content: "tiktokenWide \2265   1920px (120em)";
+				}
+		}
+
+		@media (min-width: 62.5em) {
+				body:before {
+						content: "tiktokenTablet \2265   1000px (62.5em)";
+				}
+		}
+
+		@media (min-width: 40em) {
+				body:before {
+						content: "tiktokenMobile \2265   640px (40em)";
+				}
+		}
+
+		.modalClose {
+				cursor: pointer;
+				fill: #ce251b;
+				width: 1.04167vw;
+				-webkit-transform: translateY(-12%);
+				transform: translateY(-12%);
+				position: absolute;
+				top: 1.77083vw;
+				right: 1.77083vw;
+		}
+
+		.modal-mask {
+				position: fixed;
+				z-index: 9998;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(206, 122, 31, 0.12);
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-transition: opacity .3s ease;
+				transition: opacity .3s ease;
+				-webkit-box-align: center;
+				-ms-flex-align: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				justify-content: center;
+		}
+
+		.modal-wrapper {
+				position: relative;
+		}
+
+		.modal-container {
+				padding: 1.77083vw 1.77083vw;
+				width: auto;
+				margin: 0px auto;
+				background-color: white;
+				-webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+				-webkit-transition: all .3s ease;
+				transition: all .3s ease;
+				font-family: Helvetica, Arial, sans-serif;
+				max-height: 90vh;
+				overflow-Y: scroll;
+		}
+
+		.modal-container.firefox {
+				overflow-y: auto;
+		}
+
+		.modal-container::-webkit-scrollbar {
+				display: none;
+				-ms-overflow-style: none;
+				overflow: -moz-scrollbars-none;
+		}
+
+		.modal-header {
+				margin-top: 0;
+				color: #CE5B78;
+				font-size: 1.04167vw;
+				text-transform: uppercase;
+				font-family: Roboto;
+				font-weight: 500;
+				text-align: left;
+		}
+
+		@media (max-width: 85.4275em) {
+				.modal-header {
+						font-size: 19.60784px;
+				}
+		}
+
+		.modal-default-button {
+				float: right;
+		}
+
+		/*
  * The following styles are auto-applied to elements with
  * transition="modal" when their visibility is toggled
  * by Vue.js.
@@ -1172,1519 +1367,1689 @@ body:before {
  * You can easily play with the modal transition by editing
  * these styles.
  */
-.modal-enter {
-	opacity: 0;
-}
-.modal-leave-active {
-	opacity: 0;
-}
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
-	-webkit-transform: scale(1.1);
-	transform: scale(1.1);
-}
-.modal-footer {
-	text-align: left;
-}
-</style><style type="text/css">@charset "UTF-8";
-.red-natural-color {
-	color: #ce251b;
-	fill: #ce251b;
-}
-
-/* BEGIN Light */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Light/Roboto-Light.woff2?v=2.137") format("woff2"), url("/fonts/Light/Roboto-Light.woff?v=2.137") format("woff");
-	font-weight: 300;
-	font-style: normal;
-}
-
-/* END Light */
-/* BEGIN Regular */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
-	font-weight: 400;
-	font-style: normal;
-}
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
-	font-weight: normal;
-	font-style: normal;
-}
-
-/* END Regular */
-/* BEGIN Medium */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Medium/Roboto-Medium.woff2?v=2.137") format("woff2"), url("/fonts/Medium/Roboto-Medium.woff?v=2.137") format("woff");
-	font-weight: 500;
-	font-style: normal;
-}
-
-/* END Medium */
-/* BEGIN Medium Italic */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/MediumItalic/Roboto-MediumItalic.woff2?v=2.137") format("woff2"), url("/fonts/MediumItalic/Roboto-MediumItalic.woff?v=2.137") format("woff");
-	font-weight: 500;
-	font-style: italic;
-}
-
-/* END Medium Italic */
-/* BEGIN Bold */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
-	font-weight: 700;
-	font-style: normal;
-}
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
-	font-weight: bold;
-	font-style: normal;
-}
-
-/* END Bold */
-body:before {
-	display: none;
-}
-body:before {
-	background-color: #FCF8E3;
-	border-bottom: 1px solid #FBEED5;
-	border-left: 1px solid #FBEED5;
-	color: #C09853;
-	font: small-caption;
-	padding: 3px 6px;
-	pointer-events: none;
-	position: fixed;
-	right: 0;
-	top: 0;
-	z-index: 100;
-}
-@media (min-width: 20em) {
-body:before {
-			content: "mobile \2265   320px (20em)";
-}
-}
-@media (min-width: 46.25em) {
-body:before {
-			content: "tablet \2265   740px (46.25em)";
-}
-}
-@media (min-width: 61.25em) {
-body:before {
-			content: "desktop \2265   980px (61.25em)";
-}
-}
-@media (min-width: 81.25em) {
-body:before {
-			content: "wide \2265   1300px (81.25em)";
-}
-}
-@media (min-width: 85.4375em) {
-body:before {
-			content: "stopVWBreakpoint \2265   1367px (85.4375em)";
-}
-}
-@media (min-width: 120em) {
-body:before {
-			content: "tiktokenWide \2265   1920px (120em)";
-}
-}
-@media (min-width: 62.5em) {
-body:before {
-			content: "tiktokenTablet \2265   1000px (62.5em)";
-}
-}
-@media (min-width: 40em) {
-body:before {
-			content: "tiktokenMobile \2265   640px (40em)";
-}
-}
-.rythm-picture img {
-	width: 1.25vw;
-	height: 1.25vw;
-}
-.rythm-picture .clickable {
-	font-weight: 700;
-	font-size: 0.625vw;
-	padding: 0.20833vw;
-}
-</style><script charset="utf-8" src="/15.js"></script><style>.title{
-margin-top: 1.620085419471969vw;
-margin-bottom: 1.620085419471969vw;
-margin-left: 1.6435332853379427vw;
-margin-right: 1.6435332853379427vw;
-padding-top: 1.0857590547761997vw;
-padding-bottom: 1.0857590547761997vw;
-padding-left: 1.196716271039408vw;
-padding-right: 1.196716271039408vw;
-border-radius: 0.1361916669966879vw;
-color: #c2baa8;
-border: none;
-font-size: 3.2618099205842004vw;
-}
-
-
-
-.subTitle{
-margin-top: 1.3725357100882467vw;
-margin-bottom: 1.3725357100882467vw;
-margin-left: 1.7870482893383592vw;
-margin-right: 1.7870482893383592vw;
-padding-top: 1.0367868172495907vw;
-padding-bottom: 1.0367868172495907vw;
-padding-left: 1.255480711562463vw;
-padding-right: 1.255480711562463vw;
-border-radius: 0.14257925921612655vw;
-color: #c6bead;
-border: none;
-font-size: 1.9417336924336954vw;
-}
-
-
-
-.button{
-margin-top: 1.1687327853508085vw;
-margin-bottom: 1.1687327853508085vw;
-margin-left: 1.471442090620785vw;
-margin-right: 1.471442090620785vw;
-padding-top: 1.1782540599986175vw;
-padding-bottom: 1.1782540599986175vw;
-padding-left: 1.4457309673785481vw;
-padding-right: 1.4457309673785481vw;
-border-radius: 0.13482321677004852vw;
-color: #c2b9a7;
-cursor: pointer;
-font-size: 1.5697222529961958vw;
-border: 1px solid #cdb5da;
-}
-
-
-
-.wrapper{
-margin-top: 0.6240142944588157vw;
-margin-bottom: 0.6240142944588157vw;
-margin-left: 0.5017589565526015vw;
-margin-right: 0.5017589565526015vw;
-padding-top: 1.0198295034256042vw;
-padding-bottom: 1.0198295034256042vw;
-padding-left: 0.10121154565775475vw;
-padding-right: 0.10121154565775475vw;
-border-radius: 0.15429522999814738vw;
-color: #c3bba9;
-font-size: 1.0075472917791373vw;
-border: 1px solid #f0e9f4;
-}
-
-
-
-.inputText{
-margin-top: 1.741198653220177vw;
-margin-bottom: 1.741198653220177vw;
-margin-left: 1.3120760324894585vw;
-margin-right: 1.3120760324894585vw;
-padding-top: 1.0041550534277304vw;
-padding-bottom: 1.0041550534277304vw;
-padding-left: 1.0831943062976788vw;
-padding-right: 1.0831943062976788vw;
-border-radius: 0.17258951932510283vw;
-color: #c2baa8;
-font-size: 1.1747613031619146vw;
-border: 1px solid #bfa0cf;
-}
-
-
-
-.card{
-margin-top: 1.4811840883706942vw;
-margin-bottom: 1.4811840883706942vw;
-margin-left: 1.4441559552042105vw;
-margin-right: 1.4441559552042105vw;
-padding-top: 1.144291088583708vw;
-padding-bottom: 1.144291088583708vw;
-padding-left: 1.5234115338835599vw;
-padding-right: 1.5234115338835599vw;
-border-radius: 0.1945560240385472vw;
-color: #c1b8a6;
-font-size: 1.1689373791907687vw;
-border: 1px solid #f9f7fb;
-}
-
-
-
-.colorBackground{
-margin-top: 0.5537819626834994vw;
-margin-bottom: 0.5537819626834994vw;
-margin-left: 0.2393630369727897vw;
-margin-right: 0.2393630369727897vw;
-padding-top: 0.503505046754539vw;
-padding-bottom: 0.503505046754539vw;
-padding-left: 0.3949153140169466vw;
-padding-right: 0.3949153140169466vw;
-border-radius: 0.1744742061526781vw;
-color: #bab09c;
-background: rgba(237,5,98,0.6545329699511186);
-font-size: 1.4195311063299698vw;
-border: 1px solid #c4a7d3;
-}
-
-
-
-.click{
-margin-top: 1.265202306385857vw;
-margin-bottom: 1.265202306385857vw;
-margin-left: 0.868017667126705vw;
-margin-right: 0.868017667126705vw;
-padding-top: 2.475824810669942vw;
-padding-bottom: 2.475824810669942vw;
-padding-left: 1.5972813023443282vw;
-padding-right: 1.5972813023443282vw;
-border-radius: 0.11373267355707489vw;
-color: #c0b7a4;
-cursor: pointer;
-font-size: 1.1030067990729702vw;
-border: 1px solid #d6c3e1;
-}
-
-
-
-</style><style type="text/css">@charset "UTF-8";
-.red-natural-color {
-	color: #ce251b;
-	fill: #ce251b;
-}
-
-/* BEGIN Light */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Light/Roboto-Light.woff2?v=2.137") format("woff2"), url("/fonts/Light/Roboto-Light.woff?v=2.137") format("woff");
-	font-weight: 300;
-	font-style: normal;
-}
-
-/* END Light */
-/* BEGIN Regular */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
-	font-weight: 400;
-	font-style: normal;
-}
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
-	font-weight: normal;
-	font-style: normal;
-}
-
-/* END Regular */
-/* BEGIN Medium */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Medium/Roboto-Medium.woff2?v=2.137") format("woff2"), url("/fonts/Medium/Roboto-Medium.woff?v=2.137") format("woff");
-	font-weight: 500;
-	font-style: normal;
-}
-
-/* END Medium */
-/* BEGIN Medium Italic */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/MediumItalic/Roboto-MediumItalic.woff2?v=2.137") format("woff2"), url("/fonts/MediumItalic/Roboto-MediumItalic.woff?v=2.137") format("woff");
-	font-weight: 500;
-	font-style: italic;
-}
-
-/* END Medium Italic */
-/* BEGIN Bold */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
-	font-weight: 700;
-	font-style: normal;
-}
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
-	font-weight: bold;
-	font-style: normal;
-}
-
-/* END Bold */
-body:before {
-	display: none;
-}
-body:before {
-	background-color: #FCF8E3;
-	border-bottom: 1px solid #FBEED5;
-	border-left: 1px solid #FBEED5;
-	color: #C09853;
-	font: small-caption;
-	padding: 3px 6px;
-	pointer-events: none;
-	position: fixed;
-	right: 0;
-	top: 0;
-	z-index: 100;
-}
-@media (min-width: 20em) {
-body:before {
-			content: "mobile \2265   320px (20em)";
-}
-}
-@media (min-width: 46.25em) {
-body:before {
-			content: "tablet \2265   740px (46.25em)";
-}
-}
-@media (min-width: 61.25em) {
-body:before {
-			content: "desktop \2265   980px (61.25em)";
-}
-}
-@media (min-width: 81.25em) {
-body:before {
-			content: "wide \2265   1300px (81.25em)";
-}
-}
-@media (min-width: 85.4375em) {
-body:before {
-			content: "stopVWBreakpoint \2265   1367px (85.4375em)";
-}
-}
-@media (min-width: 120em) {
-body:before {
-			content: "tiktokenWide \2265   1920px (120em)";
-}
-}
-@media (min-width: 62.5em) {
-body:before {
-			content: "tiktokenTablet \2265   1000px (62.5em)";
-}
-}
-@media (min-width: 40em) {
-body:before {
-			content: "tiktokenMobile \2265   640px (40em)";
-}
-}
-.appFooter {
-	padding-left: 4.53125vw;
-	padding-right: 4.375vw;
-	color: #ffffff;
-	line-height: 4.63542vw;
-	height: 4.42708vw;
-	background-color: #ce5c1f;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	font-family: Roboto;
-	font-weight: 300;
-}
-@media (min-width: 61.25em) {
-.appFooter {
-			padding-left: 66.92308px;
-}
-}
-.appFooter span {
-		font-size: 0.72917vw;
-}
-@media (max-width: 85.4275em) {
-.appFooter span {
-				font-size: 13.72549px;
-}
-}
-.appFooter .info {
-		float: left;
-}
-.appFooter .date {
-		float: right;
-}
-</style><style type="text/css">.timeout_title_1N-Iz {
-	text-align: center;
-}
-</style><style>.title{
-margin-top: 1.620085419471969vw;
-margin-bottom: 1.620085419471969vw;
-margin-left: 1.6435332853379427vw;
-margin-right: 1.6435332853379427vw;
-padding-top: 1.0857590547761997vw;
-padding-bottom: 1.0857590547761997vw;
-padding-left: 1.196716271039408vw;
-padding-right: 1.196716271039408vw;
-border-radius: 0.1361916669966879vw;
-color: #c2baa8;
-border: none;
-font-size: 3.2618099205842004vw;
-}
-
-
-
-.subTitle{
-margin-top: 1.3725357100882467vw;
-margin-bottom: 1.3725357100882467vw;
-margin-left: 1.7870482893383592vw;
-margin-right: 1.7870482893383592vw;
-padding-top: 1.0367868172495907vw;
-padding-bottom: 1.0367868172495907vw;
-padding-left: 1.255480711562463vw;
-padding-right: 1.255480711562463vw;
-border-radius: 0.14257925921612655vw;
-color: #c6bead;
-border: none;
-font-size: 1.9417336924336954vw;
-}
-
-
-
-.button{
-margin-top: 1.1687327853508085vw;
-margin-bottom: 1.1687327853508085vw;
-margin-left: 1.471442090620785vw;
-margin-right: 1.471442090620785vw;
-padding-top: 1.1782540599986175vw;
-padding-bottom: 1.1782540599986175vw;
-padding-left: 1.4457309673785481vw;
-padding-right: 1.4457309673785481vw;
-border-radius: 0.13482321677004852vw;
-color: #c2b9a7;
-cursor: pointer;
-font-size: 1.5697222529961958vw;
-border: 1px solid #cdb5da;
-}
-
-
-
-.wrapper{
-margin-top: 0.6240142944588157vw;
-margin-bottom: 0.6240142944588157vw;
-margin-left: 0.5017589565526015vw;
-margin-right: 0.5017589565526015vw;
-padding-top: 1.0198295034256042vw;
-padding-bottom: 1.0198295034256042vw;
-padding-left: 0.10121154565775475vw;
-padding-right: 0.10121154565775475vw;
-border-radius: 0.15429522999814738vw;
-color: #c3bba9;
-font-size: 1.0075472917791373vw;
-border: 1px solid #f0e9f4;
-}
-
-
-
-.inputText{
-margin-top: 1.741198653220177vw;
-margin-bottom: 1.741198653220177vw;
-margin-left: 1.3120760324894585vw;
-margin-right: 1.3120760324894585vw;
-padding-top: 1.0041550534277304vw;
-padding-bottom: 1.0041550534277304vw;
-padding-left: 1.0831943062976788vw;
-padding-right: 1.0831943062976788vw;
-border-radius: 0.17258951932510283vw;
-color: #c2baa8;
-font-size: 1.1747613031619146vw;
-border: 1px solid #bfa0cf;
-}
-
-
-
-.card{
-margin-top: 1.4811840883706942vw;
-margin-bottom: 1.4811840883706942vw;
-margin-left: 1.4441559552042105vw;
-margin-right: 1.4441559552042105vw;
-padding-top: 1.144291088583708vw;
-padding-bottom: 1.144291088583708vw;
-padding-left: 1.5234115338835599vw;
-padding-right: 1.5234115338835599vw;
-border-radius: 0.1945560240385472vw;
-color: #c1b8a6;
-font-size: 1.1689373791907687vw;
-border: 1px solid #f9f7fb;
-}
-
-
-
-.colorBackground{
-margin-top: 0.5537819626834994vw;
-margin-bottom: 0.5537819626834994vw;
-margin-left: 0.2393630369727897vw;
-margin-right: 0.2393630369727897vw;
-padding-top: 0.503505046754539vw;
-padding-bottom: 0.503505046754539vw;
-padding-left: 0.3949153140169466vw;
-padding-right: 0.3949153140169466vw;
-border-radius: 0.1744742061526781vw;
-color: #bab09c;
-background: rgba(237,5,98,0.6545329699511186);
-font-size: 1.4195311063299698vw;
-border: 1px solid #c4a7d3;
-}
-
-
-
-.click{
-margin-top: 1.265202306385857vw;
-margin-bottom: 1.265202306385857vw;
-margin-left: 0.868017667126705vw;
-margin-right: 0.868017667126705vw;
-padding-top: 2.475824810669942vw;
-padding-bottom: 2.475824810669942vw;
-padding-left: 1.5972813023443282vw;
-padding-right: 1.5972813023443282vw;
-border-radius: 0.11373267355707489vw;
-color: #c0b7a4;
-cursor: pointer;
-font-size: 1.1030067990729702vw;
-border: 1px solid #d6c3e1;
-}
-
-
-
-</style><style type="text/css">@charset "UTF-8";
-.red-natural-color {
-	color: #ce251b;
-	fill: #ce251b;
-}
-
-/* BEGIN Light */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Light/Roboto-Light.woff2?v=2.137") format("woff2"), url("/fonts/Light/Roboto-Light.woff?v=2.137") format("woff");
-	font-weight: 300;
-	font-style: normal;
-}
-
-/* END Light */
-/* BEGIN Regular */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
-	font-weight: 400;
-	font-style: normal;
-}
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
-	font-weight: normal;
-	font-style: normal;
-}
-
-/* END Regular */
-/* BEGIN Medium */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Medium/Roboto-Medium.woff2?v=2.137") format("woff2"), url("/fonts/Medium/Roboto-Medium.woff?v=2.137") format("woff");
-	font-weight: 500;
-	font-style: normal;
-}
-
-/* END Medium */
-/* BEGIN Medium Italic */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/MediumItalic/Roboto-MediumItalic.woff2?v=2.137") format("woff2"), url("/fonts/MediumItalic/Roboto-MediumItalic.woff?v=2.137") format("woff");
-	font-weight: 500;
-	font-style: italic;
-}
-
-/* END Medium Italic */
-/* BEGIN Bold */
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
-	font-weight: 700;
-	font-style: normal;
-}
-@font-face {
-	font-family: Roboto;
-	src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
-	font-weight: bold;
-	font-style: normal;
-}
-
-/* END Bold */
-body:before {
-	display: none;
-}
-body:before {
-	background-color: #FCF8E3;
-	border-bottom: 1px solid #FBEED5;
-	border-left: 1px solid #FBEED5;
-	color: #C09853;
-	font: small-caption;
-	padding: 3px 6px;
-	pointer-events: none;
-	position: fixed;
-	right: 0;
-	top: 0;
-	z-index: 100;
-}
-@media (min-width: 20em) {
-body:before {
-			content: "mobile \2265   320px (20em)";
-}
-}
-@media (min-width: 46.25em) {
-body:before {
-			content: "tablet \2265   740px (46.25em)";
-}
-}
-@media (min-width: 61.25em) {
-body:before {
-			content: "desktop \2265   980px (61.25em)";
-}
-}
-@media (min-width: 81.25em) {
-body:before {
-			content: "wide \2265   1300px (81.25em)";
-}
-}
-@media (min-width: 85.4375em) {
-body:before {
-			content: "stopVWBreakpoint \2265   1367px (85.4375em)";
-}
-}
-@media (min-width: 120em) {
-body:before {
-			content: "tiktokenWide \2265   1920px (120em)";
-}
-}
-@media (min-width: 62.5em) {
-body:before {
-			content: "tiktokenTablet \2265   1000px (62.5em)";
-}
-}
-@media (min-width: 40em) {
-body:before {
-			content: "tiktokenMobile \2265   640px (40em)";
-}
-}
-@font-face {
-	font-family: 'Oswald-Bold';
-	src: url("/tiktoken/Oswald/Oswald-Bold.ttf") format("truetype");
-}
-@font-face {
-	font-family: 'Oswald-ExtraLight';
-	src: url("/tiktoken/Oswald/Oswald-ExtraLight.ttf") format("truetype");
-}
-@font-face {
-	font-family: 'Oswald-Light';
-	src: url("/tiktoken/Oswald/Oswald-Light.ttf") format("truetype");
-}
-@font-face {
-	font-family: 'Oswald-Medium';
-	src: url("/tiktoken/Oswald/Oswald-Medium.ttf") format("truetype");
-}
-@font-face {
-	font-family: 'Oswald-Regular';
-	src: url("/tiktoken/Oswald/Oswald-Regular.ttf") format("truetype");
-}
-@font-face {
-	font-family: 'Oswald-Semibold';
-	src: url("/tiktoken/Oswald/Oswald-Semibold.ttf") format("truetype");
-}
-.pink {
-	color: #FF69C3;
-}
-
-/*@include mq($until: tiktokenTablet) {
-}*/
-/* Pulse */
-@-webkit-keyframes hvr-pulse {
-25% {
-		-webkit-transform: scale(1.1);
-		transform: scale(1.1);
-}
-75% {
-		-webkit-transform: scale(0.9);
-		transform: scale(0.9);
-}
-}
-@keyframes hvr-pulse {
-25% {
-		-webkit-transform: scale(1.1);
-		transform: scale(1.1);
-}
-75% {
-		-webkit-transform: scale(0.9);
-		transform: scale(0.9);
-}
-}
-.hvr-pulse:hover, .hvr-pulse:focus, .hvr-pulse:active {
-	-webkit-animation-name: hvr-pulse;
-	animation-name: hvr-pulse;
-	-webkit-animation-duration: 1s;
-	animation-duration: 1s;
-	-webkit-animation-timing-function: linear;
-	animation-timing-function: linear;
-	-webkit-animation-iteration-count: infinite;
-	animation-iteration-count: infinite;
-}
-.flexTick {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-}
-.ticktoken {
-	font-family: 'Oswald-Medium';
-}
-.ticktoken .bounce {
-		display: inline-block;
-		cursor: pointer;
-}
-.ticktoken .bounce:hover {
-			-webkit-transform: scale(1.08);
-							transform: scale(1.08);
-			-webkit-animation-name: hvr-pulse;
-							animation-name: hvr-pulse;
-			-webkit-animation-duration: .8s;
-							animation-duration: .8s;
-}
-.ticktoken .greenBack {
-		background: -webkit-gradient(linear, left top, left bottom, from(#00FF00), to(rgba(0, 255, 0, 0)));
-		background: linear-gradient(180deg, #00FF00 0%, rgba(0, 255, 0, 0) 100%);
-		-webkit-transform: matrix(1, 0, 0, -1, 0, 0);
-						transform: matrix(1, 0, 0, -1, 0, 0);
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: 50%;
-		z-index: 1;
-}
-.ticktoken .subscribeForm {
-		background: url(/tiktoken/main-form-back.png) 44% 88% no-repeat;
-		background-size: 55%;
-		height: 100vh;
-		z-index: 2;
-		position: relative;
-}
-@media (max-width: 62.49em) {
-.ticktoken .subscribeForm {
-				height: 50vh;
-}
-}
-.ticktoken .tikBlack {
-		background: black;
-		position: relative;
-}
-.ticktoken .tikBlack .elementsBack {
-			width: 60vw;
-			position: absolute;
-			top: 12vw;
-			left: 20vw;
-			z-index: 1;
-}
-.ticktoken .subscribeWrapper {
-		-webkit-transform: translateY(20%);
-						transform: translateY(20%);
-}
-.ticktoken .subscribeWrapper h1 {
-			font-family: Oswald-Bold;
-			font-size: 3.38542vw;
-			line-height: 5.3125vw;
-			text-align: center;
-			text-transform: uppercase;
-}
-@media (max-width: 62.49em) {
-.ticktoken .subscribeWrapper h1 {
-					font-size: 7.03125vw;
-					line-height: 6.71875vw;
-}
-}
-.ticktoken .subscribeWrapper .smile {
-			-webkit-transform: translateY(-10%);
-							transform: translateY(-10%);
-			text-align: center;
-}
-.ticktoken .subscribeWrapper .smile img {
-				max-width: 15.20833vw;
-}
-.ticktoken .subscribeWrapper .subscribe {
-			display: block;
-			text-transform: uppercase;
-			color: #000000;
-			display: inline-block;
-			padding: 2.34375vw;
-			background: #FFFFFF;
-			/* Rectangle 14 */
-			margin: 0 auto;
-			width: 46.25vw;
-			background: #FFFFFF;
-			-webkit-box-shadow: 0px 1px 230px rgba(66, 255, 0, 0.6);
-							box-shadow: 0px 1px 230px rgba(66, 255, 0, 0.6);
-			border-radius: 2.08333vw;
-}
-@media (max-width: 62.49em) {
-.ticktoken .subscribeWrapper .subscribe {
-					width: 73.71094vw;
-					border-radius: 6.275vw;
-					padding: 4.0625vw;
-}
-}
-.ticktoken .subscribeWrapper .tikForm {
-			margin-top: 1vw;
-}
-.ticktoken .subscribeWrapper input {
-			width: 60%;
-			border-bottom: 1px solid black;
-			border-left: 0;
-			border-right: 0;
-			border-top: 0;
-			margin-right: 1vw;
-			outline: 0;
-			text-align: left;
-			text-transform: uppercase;
-			font-family: Oswald-Light;
-			font-size: 1.35417vw;
-			line-height: 1.66667vw;
-}
-@media (max-width: 62.49em) {
-.ticktoken .subscribeWrapper input {
-					font-size: 3.4375vw;
-					line-height: 5vw;
-					width: 55.94687vw;
-					text-align: center;
-}
-}
-.ticktoken .subscribeWrapper button {
-			margin-top: 1.875vw;
-			width: 60%;
-			border: 2px solid black;
-			cursor: pointer;
-			height: 4.01042vw;
-			background: #00FF00;
-			background: #00FF00;
-			border: none;
-			outline: none;
-			text-transform: uppercase;
-			margin-top: 4vw;
-}
-.ticktoken .subscribeWrapper button:hover {
-				color: white;
-}
-@media (max-width: 62.49em) {
-.ticktoken .subscribeWrapper button {
-					font-size: 3.4375vw;
-					line-height: 5vw;
-					width: 55.86406vw;
-					height: 6.39219vw;
-}
-}
-.ticktoken .tikFooter {
-		position: relative;
-		background-image: url("/tiktoken/trump.jpg");
-		height: 100vh;
-		background-size: cover;
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-box-orient: vertical;
-		-webkit-box-direction: reverse;
-				-ms-flex-direction: column-reverse;
-						flex-direction: column-reverse;
-}
-.ticktoken .tikFooter .nowness {
-			position: relative;
-			z-index: 10;
-			margin-top: 1.04167vw;
-			margin-bottom: 1.04167vw;
-			font-family: Oswald-Bold;
-			font-weight: bold;
-			font-size: 0.78125vw;
-			line-height: 0.9375vw;
-			/* or 120% */
-			text-align: center;
-			text-transform: uppercase;
-			color: #000000;
-}
-@media (max-width: 62.49em) {
-.ticktoken .tikFooter .nowness {
-					font-size: 2.34375vw;
-					margin: 4vw;
-}
-}
-.ticktoken .tikFooter img {
-			position: relative;
-			z-index: 10;
-}
-.ticktoken img {
-		max-width: 100vw;
-		height: auto;
-		width: auto;
-}
-.ticktoken .firstList {
-		background: black;
-		color: white;
-}
-.tiktokenHeader {
-	padding-left: 1.92708vw;
-	padding-right: 1.92708vw;
-	padding-top: 2.55208vw;
-}
-.tiktokenHeader .logos, .tiktokenHeader .links {
-		-webkit-box-flex: 1;
-				-ms-flex: 1;
-						flex: 1;
-}
-@media (max-width: 62.5em) {
-.tiktokenHeader {
-			-webkit-box-orient: vertical;
-			-webkit-box-direction: normal;
-					-ms-flex-direction: column;
-							flex-direction: column;
-}
-}
-.logos {
-	position: relative;
-	z-index: 3;
-}
-.logos .logo img {
-		max-width: 20.9375vw;
-}
-@media (max-width: 39.99em) {
-.logos .logo img {
-				max-width: 37.5vw;
-}
-}
-@media (max-width: 62.49em) {
-.logos {
-			-webkit-box-orient: vertical;
-			-webkit-box-direction: normal;
-					-ms-flex-direction: column;
-							flex-direction: column;
-}
-}
-.logos .tagline {
-		font-family: Oswald-ExtraLight;
-		padding-top: 0.625vw;
-		padding-left: 3.95833vw;
-		font-size: 1.25vw;
-		line-height: 1.5625vw;
-		color: #FFFFFF;
-		text-align: left;
-}
-@media (max-width: 39.99em) {
-.logos .tagline {
-				font-size: 3.125vw;
-				line-height: 3.90625vw;
+		.modal-enter {
+				opacity: 0;
+		}
+
+		.modal-leave-active {
+				opacity: 0;
+		}
+
+		.modal-enter .modal-container,
+		.modal-leave-active .modal-container {
+				-webkit-transform: scale(1.1);
+				transform: scale(1.1);
+		}
+
+		.modal-footer {
+				text-align: left;
+		}
+		</style>
+		<style type="text/css">
+		@charset "UTF-8";
+
+		.red-natural-color {
+				color: #ce251b;
+				fill: #ce251b;
+		}
+
+		/* BEGIN Light */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Light/Roboto-Light.woff2?v=2.137") format("woff2"), url("/fonts/Light/Roboto-Light.woff?v=2.137") format("woff");
+				font-weight: 300;
+				font-style: normal;
+		}
+
+		/* END Light */
+		/* BEGIN Regular */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
+				font-weight: 400;
+				font-style: normal;
+		}
+
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
+				font-weight: normal;
+				font-style: normal;
+		}
+
+		/* END Regular */
+		/* BEGIN Medium */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Medium/Roboto-Medium.woff2?v=2.137") format("woff2"), url("/fonts/Medium/Roboto-Medium.woff?v=2.137") format("woff");
+				font-weight: 500;
+				font-style: normal;
+		}
+
+		/* END Medium */
+		/* BEGIN Medium Italic */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/MediumItalic/Roboto-MediumItalic.woff2?v=2.137") format("woff2"), url("/fonts/MediumItalic/Roboto-MediumItalic.woff?v=2.137") format("woff");
+				font-weight: 500;
+				font-style: italic;
+		}
+
+		/* END Medium Italic */
+		/* BEGIN Bold */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
+				font-weight: 700;
+				font-style: normal;
+		}
+
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
+				font-weight: bold;
+				font-style: normal;
+		}
+
+		/* END Bold */
+		body:before {
+				display: none;
+		}
+
+		body:before {
+				background-color: #FCF8E3;
+				border-bottom: 1px solid #FBEED5;
+				border-left: 1px solid #FBEED5;
+				color: #C09853;
+				font: small-caption;
+				padding: 3px 6px;
+				pointer-events: none;
+				position: fixed;
+				right: 0;
+				top: 0;
+				z-index: 100;
+		}
+
+		@media (min-width: 20em) {
+				body:before {
+						content: "mobile \2265   320px (20em)";
+				}
+		}
+
+		@media (min-width: 46.25em) {
+				body:before {
+						content: "tablet \2265   740px (46.25em)";
+				}
+		}
+
+		@media (min-width: 61.25em) {
+				body:before {
+						content: "desktop \2265   980px (61.25em)";
+				}
+		}
+
+		@media (min-width: 81.25em) {
+				body:before {
+						content: "wide \2265   1300px (81.25em)";
+				}
+		}
+
+		@media (min-width: 85.4375em) {
+				body:before {
+						content: "stopVWBreakpoint \2265   1367px (85.4375em)";
+				}
+		}
+
+		@media (min-width: 120em) {
+				body:before {
+						content: "tiktokenWide \2265   1920px (120em)";
+				}
+		}
+
+		@media (min-width: 62.5em) {
+				body:before {
+						content: "tiktokenTablet \2265   1000px (62.5em)";
+				}
+		}
+
+		@media (min-width: 40em) {
+				body:before {
+						content: "tiktokenMobile \2265   640px (40em)";
+				}
+		}
+
+		.rythm-picture img {
+				width: 1.25vw;
+				height: 1.25vw;
+		}
+
+		.rythm-picture .clickable {
+				font-weight: 700;
+				font-size: 0.625vw;
+				padding: 0.20833vw;
+		}
+		</style>
+		<script charset="utf-8" src="/15.js"></script>
+		<style>
+		.title {
+				margin-top: 1.620085419471969vw;
+				margin-bottom: 1.620085419471969vw;
+				margin-left: 1.6435332853379427vw;
+				margin-right: 1.6435332853379427vw;
+				padding-top: 1.0857590547761997vw;
+				padding-bottom: 1.0857590547761997vw;
+				padding-left: 1.196716271039408vw;
+				padding-right: 1.196716271039408vw;
+				border-radius: 0.1361916669966879vw;
+				color: #c2baa8;
+				border: none;
+				font-size: 3.2618099205842004vw;
+		}
+
+
+
+		.subTitle {
+				margin-top: 1.3725357100882467vw;
+				margin-bottom: 1.3725357100882467vw;
+				margin-left: 1.7870482893383592vw;
+				margin-right: 1.7870482893383592vw;
+				padding-top: 1.0367868172495907vw;
+				padding-bottom: 1.0367868172495907vw;
+				padding-left: 1.255480711562463vw;
+				padding-right: 1.255480711562463vw;
+				border-radius: 0.14257925921612655vw;
+				color: #c6bead;
+				border: none;
+				font-size: 1.9417336924336954vw;
+		}
+
+
+
+		.button {
+				margin-top: 1.1687327853508085vw;
+				margin-bottom: 1.1687327853508085vw;
+				margin-left: 1.471442090620785vw;
+				margin-right: 1.471442090620785vw;
+				padding-top: 1.1782540599986175vw;
+				padding-bottom: 1.1782540599986175vw;
+				padding-left: 1.4457309673785481vw;
+				padding-right: 1.4457309673785481vw;
+				border-radius: 0.13482321677004852vw;
+				color: #c2b9a7;
+				cursor: pointer;
+				font-size: 1.5697222529961958vw;
+				border: 1px solid #cdb5da;
+		}
+
+
+
+		.wrapper {
+				margin-top: 0.6240142944588157vw;
+				margin-bottom: 0.6240142944588157vw;
+				margin-left: 0.5017589565526015vw;
+				margin-right: 0.5017589565526015vw;
+				padding-top: 1.0198295034256042vw;
+				padding-bottom: 1.0198295034256042vw;
+				padding-left: 0.10121154565775475vw;
+				padding-right: 0.10121154565775475vw;
+				border-radius: 0.15429522999814738vw;
+				color: #c3bba9;
+				font-size: 1.0075472917791373vw;
+				border: 1px solid #f0e9f4;
+		}
+
+
+
+		.inputText {
+				margin-top: 1.741198653220177vw;
+				margin-bottom: 1.741198653220177vw;
+				margin-left: 1.3120760324894585vw;
+				margin-right: 1.3120760324894585vw;
+				padding-top: 1.0041550534277304vw;
+				padding-bottom: 1.0041550534277304vw;
+				padding-left: 1.0831943062976788vw;
+				padding-right: 1.0831943062976788vw;
+				border-radius: 0.17258951932510283vw;
+				color: #c2baa8;
+				font-size: 1.1747613031619146vw;
+				border: 1px solid #bfa0cf;
+		}
+
+
+
+		.card {
+				margin-top: 1.4811840883706942vw;
+				margin-bottom: 1.4811840883706942vw;
+				margin-left: 1.4441559552042105vw;
+				margin-right: 1.4441559552042105vw;
+				padding-top: 1.144291088583708vw;
+				padding-bottom: 1.144291088583708vw;
+				padding-left: 1.5234115338835599vw;
+				padding-right: 1.5234115338835599vw;
+				border-radius: 0.1945560240385472vw;
+				color: #c1b8a6;
+				font-size: 1.1689373791907687vw;
+				border: 1px solid #f9f7fb;
+		}
+
+
+
+		.colorBackground {
+				margin-top: 0.5537819626834994vw;
+				margin-bottom: 0.5537819626834994vw;
+				margin-left: 0.2393630369727897vw;
+				margin-right: 0.2393630369727897vw;
+				padding-top: 0.503505046754539vw;
+				padding-bottom: 0.503505046754539vw;
+				padding-left: 0.3949153140169466vw;
+				padding-right: 0.3949153140169466vw;
+				border-radius: 0.1744742061526781vw;
+				color: #bab09c;
+				background: rgba(237, 5, 98, 0.6545329699511186);
+				font-size: 1.4195311063299698vw;
+				border: 1px solid #c4a7d3;
+		}
+
+
+
+		.click {
+				margin-top: 1.265202306385857vw;
+				margin-bottom: 1.265202306385857vw;
+				margin-left: 0.868017667126705vw;
+				margin-right: 0.868017667126705vw;
+				padding-top: 2.475824810669942vw;
+				padding-bottom: 2.475824810669942vw;
+				padding-left: 1.5972813023443282vw;
+				padding-right: 1.5972813023443282vw;
+				border-radius: 0.11373267355707489vw;
+				color: #c0b7a4;
+				cursor: pointer;
+				font-size: 1.1030067990729702vw;
+				border: 1px solid #d6c3e1;
+		}
+		</style>
+		<style type="text/css">
+		@charset "UTF-8";
+
+		.red-natural-color {
+				color: #ce251b;
+				fill: #ce251b;
+		}
+
+		/* BEGIN Light */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Light/Roboto-Light.woff2?v=2.137") format("woff2"), url("/fonts/Light/Roboto-Light.woff?v=2.137") format("woff");
+				font-weight: 300;
+				font-style: normal;
+		}
+
+		/* END Light */
+		/* BEGIN Regular */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
+				font-weight: 400;
+				font-style: normal;
+		}
+
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
+				font-weight: normal;
+				font-style: normal;
+		}
+
+		/* END Regular */
+		/* BEGIN Medium */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Medium/Roboto-Medium.woff2?v=2.137") format("woff2"), url("/fonts/Medium/Roboto-Medium.woff?v=2.137") format("woff");
+				font-weight: 500;
+				font-style: normal;
+		}
+
+		/* END Medium */
+		/* BEGIN Medium Italic */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/MediumItalic/Roboto-MediumItalic.woff2?v=2.137") format("woff2"), url("/fonts/MediumItalic/Roboto-MediumItalic.woff?v=2.137") format("woff");
+				font-weight: 500;
+				font-style: italic;
+		}
+
+		/* END Medium Italic */
+		/* BEGIN Bold */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
+				font-weight: 700;
+				font-style: normal;
+		}
+
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
+				font-weight: bold;
+				font-style: normal;
+		}
+
+		/* END Bold */
+		body:before {
+				display: none;
+		}
+
+		body:before {
+				background-color: #FCF8E3;
+				border-bottom: 1px solid #FBEED5;
+				border-left: 1px solid #FBEED5;
+				color: #C09853;
+				font: small-caption;
+				padding: 3px 6px;
+				pointer-events: none;
+				position: fixed;
+				right: 0;
+				top: 0;
+				z-index: 100;
+		}
+
+		@media (min-width: 20em) {
+				body:before {
+						content: "mobile \2265   320px (20em)";
+				}
+		}
+
+		@media (min-width: 46.25em) {
+				body:before {
+						content: "tablet \2265   740px (46.25em)";
+				}
+		}
+
+		@media (min-width: 61.25em) {
+				body:before {
+						content: "desktop \2265   980px (61.25em)";
+				}
+		}
+
+		@media (min-width: 81.25em) {
+				body:before {
+						content: "wide \2265   1300px (81.25em)";
+				}
+		}
+
+		@media (min-width: 85.4375em) {
+				body:before {
+						content: "stopVWBreakpoint \2265   1367px (85.4375em)";
+				}
+		}
+
+		@media (min-width: 120em) {
+				body:before {
+						content: "tiktokenWide \2265   1920px (120em)";
+				}
+		}
+
+		@media (min-width: 62.5em) {
+				body:before {
+						content: "tiktokenTablet \2265   1000px (62.5em)";
+				}
+		}
+
+		@media (min-width: 40em) {
+				body:before {
+						content: "tiktokenMobile \2265   640px (40em)";
+				}
+		}
+
+		.appFooter {
+				padding-left: 4.53125vw;
+				padding-right: 4.375vw;
+				color: #ffffff;
+				line-height: 4.63542vw;
+				height: 4.42708vw;
+				background-color: #ce5c1f;
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				font-family: Roboto;
+				font-weight: 300;
+		}
+
+		@media (min-width: 61.25em) {
+				.appFooter {
+						padding-left: 66.92308px;
+				}
+		}
+
+		.appFooter span {
+				font-size: 0.72917vw;
+		}
+
+		@media (max-width: 85.4275em) {
+				.appFooter span {
+						font-size: 13.72549px;
+				}
+		}
+
+		.appFooter .info {
+				float: left;
+		}
+
+		.appFooter .date {
+				float: right;
+		}
+		</style>
+		<style type="text/css">
+		.timeout_title_1N-Iz {
 				text-align: center;
-				margin-top: 4.375vw;
-				margin-bottom: 4.375vw;
-}
-}
-.links {
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: reverse;
-			-ms-flex-direction: row-reverse;
-					flex-direction: row-reverse;
-}
-@media (max-width: 39.99em) {
-.links {
-			-webkit-box-pack: center;
-					-ms-flex-pack: center;
-							justify-content: center;
-}
-.links .tikLink {
-				width: 150vw;
-}
-}
-.links .tikLink {
-		margin: 1vw;
-		width: 8.54167vw;
-		height: 2.39583vw;
-		text-align: center;
-		font-family: Oswald-Light;
-		font-size: 1.4vw;
-		line-height: 2vw;
-		color: #6384FF;
-		border: 1px solid #6384FF;
-		-webkit-box-sizing: border-box;
-						box-sizing: border-box;
-		border-radius: 10px;
-}
-.links .tikLink a {
-			display: block;
-}
-@media (max-width: 39.99em) {
-.links .tikLink {
-				width: 21.08437vw;
-				height: 7.1875vw;
-				border: 1px solid #FA00FF;
-				-webkit-box-sizing: border-box;
-								box-sizing: border-box;
-				border-radius: 1.5625vw;
-				font-size: 2.5vw;
-				line-height: 6.25vw;
-}
-}
-.advert {
-	padding-top: 9.11458vw;
-	-ms-flex-pack: distribute;
-			justify-content: space-around;
-}
-.buttonGreen {
-	/* Group 50 */
-	background: #00FF00;
-	border-radius: 1.04167vw;
-	width: 22.08333vw;
-	height: 4.79167vw;
-	font-family: Oswald-Bold;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 1.82292vw;
-	line-height: 5.20833vw;
-	/* or 286% */
-	text-align: center;
-	color: #000000;
-}
-.greenLine {
-	height: 4.16667vw;
-	position: relative;
-	font-family: Oswald-Regular;
-	font-size: 2.08333vw;
-	line-height: 3.125vw;
-	/* or 150% */
-	background: #00FF00;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-			-ms-flex-align: center;
-					align-items: center;
-	text-align: center;
-	text-transform: uppercase;
-	color: black;
-}
-.greenLine img {
-		max-width: 10.57292vw;
-		position: relative;
-		z-index: 30;
-}
-@media (max-width: 39.99em) {
-.greenLine {
-			display: -webkit-box;
-			display: -ms-flexbox;
-			display: flex;
-			-webkit-box-pack: center;
-					-ms-flex-pack: center;
-							justify-content: center;
-			font-family: Oswald-bold;
-			height: 12.5vw;
-			text-align: center;
-			font-size: 3.75vw;
-}
-.greenLine span {
-				margin: 6vw;
-}
-.greenLine img {
-				-webkit-transform: scale(1.8);
-								transform: scale(1.8);
-}
-}
-.advertText {
-	font-family: Oswald-Bold;
-	font-style: normal;
-	font-size: 5.20833vw;
-	line-height: 5.20833vw;
-	color: #FFFFFF;
-}
-.mainPicture img {
-	max-width: 89vw;
-}
-@media (min-width: 62.5em) {
-.tikGadget {
-		display: none;
-}
-}
-@media (min-width: 62.5em) {
-.tikMobile {
-		display: none;
-}
-}
-@media (max-width: 39.99em) {
-.tikHideMobile {
-		display: none;
-}
-}
-@media (max-width: 62.49em) {
-.tikPc {
-		display: none;
-}
-}
-.childrenPic {
-	background-image: url("/tiktoken/main-children.jpg");
-	height: 100vh;
-	position: relative;
-	z-index: 3;
-}
-.childrenPic .mobileChildrenText {
-		font-size: 3.125vw;
-		line-height: 3.38542vw;
-		text-align: center;
-		position: relative;
-}
-@media (max-width: 62.49em) {
-.childrenPic .mobileChildrenText {
-				font-size: 12.5vw;
-				line-height: 11.71875vw;
-}
-.childrenPic .mobileChildrenText p {
-					padding-top: 35%;
-}
-}
-.childrenPic .childrenPicturies {
-		position: absolute;
-		top: 0;
-		left: 8vw;
-		width: 77vw;
-		z-index: 2;
-}
-.maryProfile {
-	/* The new home for influencers! */
-	background: #F699BE;
-	position: relative;
-}
-@media (max-width: 62.49em) {
-.maryProfile .maryImg img {
-			max-width: 82vw;
-}
-}
-.maryProfile .profileEye {
-		position: relative;
-		-webkit-transform: translateY(-30%);
-						transform: translateY(-30%);
-		z-index: 30;
-		text-align: center;
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-box-pack: center;
-				-ms-flex-pack: center;
+		}
+		</style>
+		<style>
+		.title {
+				margin-top: 1.620085419471969vw;
+				margin-bottom: 1.620085419471969vw;
+				margin-left: 1.6435332853379427vw;
+				margin-right: 1.6435332853379427vw;
+				padding-top: 1.0857590547761997vw;
+				padding-bottom: 1.0857590547761997vw;
+				padding-left: 1.196716271039408vw;
+				padding-right: 1.196716271039408vw;
+				border-radius: 0.1361916669966879vw;
+				color: #c2baa8;
+				border: none;
+				font-size: 3.2618099205842004vw;
+		}
+
+
+
+		.subTitle {
+				margin-top: 1.3725357100882467vw;
+				margin-bottom: 1.3725357100882467vw;
+				margin-left: 1.7870482893383592vw;
+				margin-right: 1.7870482893383592vw;
+				padding-top: 1.0367868172495907vw;
+				padding-bottom: 1.0367868172495907vw;
+				padding-left: 1.255480711562463vw;
+				padding-right: 1.255480711562463vw;
+				border-radius: 0.14257925921612655vw;
+				color: #c6bead;
+				border: none;
+				font-size: 1.9417336924336954vw;
+		}
+
+
+
+		.button {
+				margin-top: 1.1687327853508085vw;
+				margin-bottom: 1.1687327853508085vw;
+				margin-left: 1.471442090620785vw;
+				margin-right: 1.471442090620785vw;
+				padding-top: 1.1782540599986175vw;
+				padding-bottom: 1.1782540599986175vw;
+				padding-left: 1.4457309673785481vw;
+				padding-right: 1.4457309673785481vw;
+				border-radius: 0.13482321677004852vw;
+				color: #c2b9a7;
+				cursor: pointer;
+				font-size: 1.5697222529961958vw;
+				border: 1px solid #cdb5da;
+		}
+
+
+
+		.wrapper {
+				margin-top: 0.6240142944588157vw;
+				margin-bottom: 0.6240142944588157vw;
+				margin-left: 0.5017589565526015vw;
+				margin-right: 0.5017589565526015vw;
+				padding-top: 1.0198295034256042vw;
+				padding-bottom: 1.0198295034256042vw;
+				padding-left: 0.10121154565775475vw;
+				padding-right: 0.10121154565775475vw;
+				border-radius: 0.15429522999814738vw;
+				color: #c3bba9;
+				font-size: 1.0075472917791373vw;
+				border: 1px solid #f0e9f4;
+		}
+
+
+
+		.inputText {
+				margin-top: 1.741198653220177vw;
+				margin-bottom: 1.741198653220177vw;
+				margin-left: 1.3120760324894585vw;
+				margin-right: 1.3120760324894585vw;
+				padding-top: 1.0041550534277304vw;
+				padding-bottom: 1.0041550534277304vw;
+				padding-left: 1.0831943062976788vw;
+				padding-right: 1.0831943062976788vw;
+				border-radius: 0.17258951932510283vw;
+				color: #c2baa8;
+				font-size: 1.1747613031619146vw;
+				border: 1px solid #bfa0cf;
+		}
+
+
+
+		.card {
+				margin-top: 1.4811840883706942vw;
+				margin-bottom: 1.4811840883706942vw;
+				margin-left: 1.4441559552042105vw;
+				margin-right: 1.4441559552042105vw;
+				padding-top: 1.144291088583708vw;
+				padding-bottom: 1.144291088583708vw;
+				padding-left: 1.5234115338835599vw;
+				padding-right: 1.5234115338835599vw;
+				border-radius: 0.1945560240385472vw;
+				color: #c1b8a6;
+				font-size: 1.1689373791907687vw;
+				border: 1px solid #f9f7fb;
+		}
+
+
+
+		.colorBackground {
+				margin-top: 0.5537819626834994vw;
+				margin-bottom: 0.5537819626834994vw;
+				margin-left: 0.2393630369727897vw;
+				margin-right: 0.2393630369727897vw;
+				padding-top: 0.503505046754539vw;
+				padding-bottom: 0.503505046754539vw;
+				padding-left: 0.3949153140169466vw;
+				padding-right: 0.3949153140169466vw;
+				border-radius: 0.1744742061526781vw;
+				color: #bab09c;
+				background: rgba(237, 5, 98, 0.6545329699511186);
+				font-size: 1.4195311063299698vw;
+				border: 1px solid #c4a7d3;
+		}
+
+
+
+		.click {
+				margin-top: 1.265202306385857vw;
+				margin-bottom: 1.265202306385857vw;
+				margin-left: 0.868017667126705vw;
+				margin-right: 0.868017667126705vw;
+				padding-top: 2.475824810669942vw;
+				padding-bottom: 2.475824810669942vw;
+				padding-left: 1.5972813023443282vw;
+				padding-right: 1.5972813023443282vw;
+				border-radius: 0.11373267355707489vw;
+				color: #c0b7a4;
+				cursor: pointer;
+				font-size: 1.1030067990729702vw;
+				border: 1px solid #d6c3e1;
+		}
+		</style>
+		<style type="text/css">
+		@charset "UTF-8";
+
+		.red-natural-color {
+				color: #ce251b;
+				fill: #ce251b;
+		}
+
+		/* BEGIN Light */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Light/Roboto-Light.woff2?v=2.137") format("woff2"), url("/fonts/Light/Roboto-Light.woff?v=2.137") format("woff");
+				font-weight: 300;
+				font-style: normal;
+		}
+
+		/* END Light */
+		/* BEGIN Regular */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
+				font-weight: 400;
+				font-style: normal;
+		}
+
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Regular/Roboto-Regular.woff2?v=2.137") format("woff2"), url("/fonts/Regular/Roboto-Regular.woff?v=2.137") format("woff");
+				font-weight: normal;
+				font-style: normal;
+		}
+
+		/* END Regular */
+		/* BEGIN Medium */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Medium/Roboto-Medium.woff2?v=2.137") format("woff2"), url("/fonts/Medium/Roboto-Medium.woff?v=2.137") format("woff");
+				font-weight: 500;
+				font-style: normal;
+		}
+
+		/* END Medium */
+		/* BEGIN Medium Italic */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/MediumItalic/Roboto-MediumItalic.woff2?v=2.137") format("woff2"), url("/fonts/MediumItalic/Roboto-MediumItalic.woff?v=2.137") format("woff");
+				font-weight: 500;
+				font-style: italic;
+		}
+
+		/* END Medium Italic */
+		/* BEGIN Bold */
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
+				font-weight: 700;
+				font-style: normal;
+		}
+
+		@font-face {
+				font-family: Roboto;
+				src: url("/fonts/Bold/Roboto-Bold.woff2?v=2.137") format("woff2"), url("/fonts/Bold/Roboto-Bold.woff?v=2.137") format("woff");
+				font-weight: bold;
+				font-style: normal;
+		}
+
+		/* END Bold */
+		body:before {
+				display: none;
+		}
+
+		body:before {
+				background-color: #FCF8E3;
+				border-bottom: 1px solid #FBEED5;
+				border-left: 1px solid #FBEED5;
+				color: #C09853;
+				font: small-caption;
+				padding: 3px 6px;
+				pointer-events: none;
+				position: fixed;
+				right: 0;
+				top: 0;
+				z-index: 100;
+		}
+
+		@media (min-width: 20em) {
+				body:before {
+						content: "mobile \2265   320px (20em)";
+				}
+		}
+
+		@media (min-width: 46.25em) {
+				body:before {
+						content: "tablet \2265   740px (46.25em)";
+				}
+		}
+
+		@media (min-width: 61.25em) {
+				body:before {
+						content: "desktop \2265   980px (61.25em)";
+				}
+		}
+
+		@media (min-width: 81.25em) {
+				body:before {
+						content: "wide \2265   1300px (81.25em)";
+				}
+		}
+
+		@media (min-width: 85.4375em) {
+				body:before {
+						content: "stopVWBreakpoint \2265   1367px (85.4375em)";
+				}
+		}
+
+		@media (min-width: 120em) {
+				body:before {
+						content: "tiktokenWide \2265   1920px (120em)";
+				}
+		}
+
+		@media (min-width: 62.5em) {
+				body:before {
+						content: "tiktokenTablet \2265   1000px (62.5em)";
+				}
+		}
+
+		@media (min-width: 40em) {
+				body:before {
+						content: "tiktokenMobile \2265   640px (40em)";
+				}
+		}
+
+		@font-face {
+				font-family: 'Oswald-Bold';
+				src: url("/tiktoken/Oswald/Oswald-Bold.ttf") format("truetype");
+		}
+
+		@font-face {
+				font-family: 'Oswald-ExtraLight';
+				src: url("/tiktoken/Oswald/Oswald-ExtraLight.ttf") format("truetype");
+		}
+
+		@font-face {
+				font-family: 'Oswald-Light';
+				src: url("/tiktoken/Oswald/Oswald-Light.ttf") format("truetype");
+		}
+
+		@font-face {
+				font-family: 'Oswald-Medium';
+				src: url("/tiktoken/Oswald/Oswald-Medium.ttf") format("truetype");
+		}
+
+		@font-face {
+				font-family: 'Oswald-Regular';
+				src: url("/tiktoken/Oswald/Oswald-Regular.ttf") format("truetype");
+		}
+
+		@font-face {
+				font-family: 'Oswald-Semibold';
+				src: url("/tiktoken/Oswald/Oswald-Semibold.ttf") format("truetype");
+		}
+
+		.pink {
+				color: #FF69C3;
+		}
+
+		/*@include mq($until: tiktokenTablet) {
+}*/
+		/* Pulse */
+		@-webkit-keyframes hvr-pulse {
+				25% {
+						-webkit-transform: scale(1.1);
+						transform: scale(1.1);
+				}
+
+				75% {
+						-webkit-transform: scale(0.9);
+						transform: scale(0.9);
+				}
+		}
+
+		@keyframes hvr-pulse {
+				25% {
+						-webkit-transform: scale(1.1);
+						transform: scale(1.1);
+				}
+
+				75% {
+						-webkit-transform: scale(0.9);
+						transform: scale(0.9);
+				}
+		}
+
+		.hvr-pulse:hover,
+		.hvr-pulse:focus,
+		.hvr-pulse:active {
+				-webkit-animation-name: hvr-pulse;
+				animation-name: hvr-pulse;
+				-webkit-animation-duration: 1s;
+				animation-duration: 1s;
+				-webkit-animation-timing-function: linear;
+				animation-timing-function: linear;
+				-webkit-animation-iteration-count: infinite;
+				animation-iteration-count: infinite;
+		}
+
+		.flexTick {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+		}
+
+		.ticktoken {
+				font-family: 'Oswald-Medium';
+		}
+
+		.ticktoken .bounce {
+				display: inline-block;
+				cursor: pointer;
+		}
+
+		.ticktoken .bounce:hover {
+				-webkit-transform: scale(1.08);
+				transform: scale(1.08);
+				-webkit-animation-name: hvr-pulse;
+				animation-name: hvr-pulse;
+				-webkit-animation-duration: .8s;
+				animation-duration: .8s;
+		}
+
+		.ticktoken .greenBack {
+				background: -webkit-gradient(linear, left top, left bottom, from(#00FF00), to(rgba(0, 255, 0, 0)));
+				background: linear-gradient(180deg, #00FF00 0%, rgba(0, 255, 0, 0) 100%);
+				-webkit-transform: matrix(1, 0, 0, -1, 0, 0);
+				transform: matrix(1, 0, 0, -1, 0, 0);
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 50%;
+				z-index: 1;
+		}
+
+		.ticktoken .subscribeForm {
+				background: url(/tiktoken/main-form-back.png) 44% 88% no-repeat;
+				background-size: 55%;
+				height: 100vh;
+				z-index: 2;
+				position: relative;
+		}
+
+		@media (max-width: 62.49em) {
+				.ticktoken .subscribeForm {
+						height: 50vh;
+				}
+		}
+
+		.ticktoken .tikBlack {
+				background: black;
+				position: relative;
+		}
+
+		.ticktoken .tikBlack .elementsBack {
+				width: 60vw;
+				position: absolute;
+				top: 12vw;
+				left: 20vw;
+				z-index: 1;
+		}
+
+		.ticktoken .subscribeWrapper {
+				-webkit-transform: translateY(20%);
+				transform: translateY(20%);
+		}
+
+		.ticktoken .subscribeWrapper h1 {
+				font-family: Oswald-Bold;
+				font-size: 3.38542vw;
+				line-height: 5.3125vw;
+				text-align: center;
+				text-transform: uppercase;
+		}
+
+		@media (max-width: 62.49em) {
+				.ticktoken .subscribeWrapper h1 {
+						font-size: 7.03125vw;
+						line-height: 6.71875vw;
+				}
+		}
+
+		.ticktoken .subscribeWrapper .smile {
+				-webkit-transform: translateY(-10%);
+				transform: translateY(-10%);
+				text-align: center;
+		}
+
+		.ticktoken .subscribeWrapper .smile img {
+				max-width: 15.20833vw;
+		}
+
+		.ticktoken .subscribeWrapper .subscribe {
+				display: block;
+				text-transform: uppercase;
+				color: #000000;
+				display: inline-block;
+				padding: 2.34375vw;
+				background: #FFFFFF;
+				/* Rectangle 14 */
+				margin: 0 auto;
+				width: 46.25vw;
+				background: #FFFFFF;
+				-webkit-box-shadow: 0px 1px 230px rgba(66, 255, 0, 0.6);
+				box-shadow: 0px 1px 230px rgba(66, 255, 0, 0.6);
+				border-radius: 2.08333vw;
+		}
+
+		@media (max-width: 62.49em) {
+				.ticktoken .subscribeWrapper .subscribe {
+						width: 73.71094vw;
+						border-radius: 6.275vw;
+						padding: 4.0625vw;
+				}
+		}
+
+		.ticktoken .subscribeWrapper .tikForm {
+				margin-top: 1vw;
+		}
+
+		.ticktoken .subscribeWrapper input {
+				width: 60%;
+				border-bottom: 1px solid black;
+				border-left: 0;
+				border-right: 0;
+				border-top: 0;
+				margin-right: 1vw;
+				outline: 0;
+				text-align: left;
+				text-transform: uppercase;
+				font-family: Oswald-Light;
+				font-size: 1.35417vw;
+				line-height: 1.66667vw;
+		}
+
+		@media (max-width: 62.49em) {
+				.ticktoken .subscribeWrapper input {
+						font-size: 3.4375vw;
+						line-height: 5vw;
+						width: 55.94687vw;
+						text-align: center;
+				}
+		}
+
+		.ticktoken .subscribeWrapper button {
+				margin-top: 1.875vw;
+				width: 60%;
+				border: 2px solid black;
+				cursor: pointer;
+				height: 4.01042vw;
+				background: #00FF00;
+				background: #00FF00;
+				border: none;
+				outline: none;
+				text-transform: uppercase;
+				margin-top: 4vw;
+		}
+
+		.ticktoken .subscribeWrapper button:hover {
+				color: white;
+		}
+
+		@media (max-width: 62.49em) {
+				.ticktoken .subscribeWrapper button {
+						font-size: 3.4375vw;
+						line-height: 5vw;
+						width: 55.86406vw;
+						height: 6.39219vw;
+				}
+		}
+
+		.ticktoken .tikFooter {
+				position: relative;
+				background-image: url("/tiktoken/trump.jpg");
+				height: 100vh;
+				background-size: cover;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-orient: vertical;
+				-webkit-box-direction: reverse;
+				-ms-flex-direction: column-reverse;
+				flex-direction: column-reverse;
+		}
+
+		.ticktoken .tikFooter .nowness {
+				position: relative;
+				z-index: 10;
+				margin-top: 1.04167vw;
+				margin-bottom: 1.04167vw;
+				font-family: Oswald-Bold;
+				font-weight: bold;
+				font-size: 0.78125vw;
+				line-height: 0.9375vw;
+				/* or 120% */
+				text-align: center;
+				text-transform: uppercase;
+				color: #000000;
+		}
+
+		@media (max-width: 62.49em) {
+				.ticktoken .tikFooter .nowness {
+						font-size: 2.34375vw;
+						margin: 4vw;
+				}
+		}
+
+		.ticktoken .tikFooter img {
+				position: relative;
+				z-index: 10;
+		}
+
+		.ticktoken img {
+				max-width: 100vw;
+				height: auto;
+				width: auto;
+		}
+
+		.ticktoken .firstList {
+				background: black;
+				color: white;
+		}
+
+		.tiktokenHeader {
+				padding-left: 1.92708vw;
+				padding-right: 1.92708vw;
+				padding-top: 2.55208vw;
+		}
+
+		.tiktokenHeader .logos,
+		.tiktokenHeader .links {
+				-webkit-box-flex: 1;
+				-ms-flex: 1;
+				flex: 1;
+		}
+
+		@media (max-width: 62.5em) {
+				.tiktokenHeader {
+						-webkit-box-orient: vertical;
+						-webkit-box-direction: normal;
+						-ms-flex-direction: column;
+						flex-direction: column;
+				}
+		}
+
+		.logos {
+				position: relative;
+				z-index: 3;
+		}
+
+		.logos .logo img {
+				max-width: 20.9375vw;
+		}
+
+		@media (max-width: 39.99em) {
+				.logos .logo img {
+						max-width: 37.5vw;
+				}
+		}
+
+		@media (max-width: 62.49em) {
+				.logos {
+						-webkit-box-orient: vertical;
+						-webkit-box-direction: normal;
+						-ms-flex-direction: column;
+						flex-direction: column;
+				}
+		}
+
+		.logos .tagline {
+				font-family: Oswald-ExtraLight;
+				padding-top: 0.625vw;
+				padding-left: 3.95833vw;
+				font-size: 1.25vw;
+				line-height: 1.5625vw;
+				color: #FFFFFF;
+				text-align: left;
+		}
+
+		@media (max-width: 39.99em) {
+				.logos .tagline {
+						font-size: 3.125vw;
+						line-height: 3.90625vw;
+						text-align: center;
+						margin-top: 4.375vw;
+						margin-bottom: 4.375vw;
+				}
+		}
+
+		.links {
+				-webkit-box-orient: horizontal;
+				-webkit-box-direction: reverse;
+				-ms-flex-direction: row-reverse;
+				flex-direction: row-reverse;
+		}
+
+		@media (max-width: 39.99em) {
+				.links {
+						-webkit-box-pack: center;
+						-ms-flex-pack: center;
 						justify-content: center;
-}
-.maryProfile .profileEye img {
-			width: 9.21563vw;
-			max-width: 9.21563vw;
-			height: auto;
-}
-@media (max-width: 62.49em) {
-.maryProfile .profileEye img {
-					width: 24vw;
-					max-width: 20vw;
-}
-}
-.maryProfile img {
-		max-width: 51.14583vw;
-}
-.maryProfile h4, .maryProfile h2 {
-		color: black;
-		font-family: Oswald-Bold;
-		font-style: normal;
-		font-size: 3.75vw;
-		line-height: 6.77083vw;
-		/* or 181% */
-		text-align: center;
-		text-transform: uppercase;
-		color: #FFFFFF;
-}
-.maryProfile .profile h2 {
-		font-size: 5.72917vw;
-		line-height: 6.77083vw;
-		color: #9C1FFF;
-}
-.steps .stepPicture img {
-	height: auto;
-	max-width: 40vw;
-}
-.steps .step div {
-	display: inline-block;
-}
-.steps .flexTick {
-	-webkit-box-pack: center;
-			-ms-flex-pack: center;
-					justify-content: center;
-}
-.steps .step {
-	background: -webkit-gradient(linear, left bottom, left top, from(#8066FF), to(rgba(255, 179, 181, 0)));
-	background: linear-gradient(0deg, #8066FF 0%, rgba(255, 179, 181, 0) 100%);
-	height: 75vh;
-	position: relative;
-}
-@media (max-width: 62.49em) {
-.steps .step {
-			height: 30vh;
-			font-size: 4.6875vw;
-			line-height: 4.6875vw;
-}
-}
-.steps .stepText {
-	text-align: left;
-	font-family: Oswald-Bold;
-	font-size: 3.64583vw;
-	line-height: 5.20833vw;
-	color: #57009C;
-	z-index: 1000;
-}
-.steps .stepNumber {
-	font-family: Oswald-Bold;
-	font-size: 39.0625vw;
-	color: white;
-	z-index: 999;
-}
-.steps .stepNumber, .steps .stepPicture, .steps .stepText {
-	display: inline-block;
-	position: absolute;
-}
-.steps .step-1 .stepNumber {
-	bottom: -14vw;
-	left: 40vw;
-}
-.steps .step-1 .stepText {
-	bottom: 3vw;
-	left: 26vw;
-}
-.steps .step-1 .stepPicture {
-	bottom: 0;
-	left: 45vw;
-}
-@media (max-width: 62.49em) {
-.steps .step-1 .stepNumber {
-		bottom: 14vw;
-}
-}
-.steps .step-2 .stepNumber {
-	bottom: -14vw;
-	left: 30vw;
-}
-.steps .step-2 .stepText {
-	bottom: 15vw;
-	left: 52vw;
-}
-.steps .step-2 .stepPicture {
-	bottom: -8vw;
-	left: 45vw;
-}
-@media (max-width: 62.49em) {
-.steps .step-2 .stepNumber {
-		bottom: 14vw;
-}
-}
-.steps .step-3 .stepNumber {
-	bottom: -14vw;
-	left: 20vw;
-}
-.steps .step-3 .stepText {
-	bottom: 10vw;
-	left: 40vw;
-}
-.steps .step-3 .stepPicture {
-	bottom: -8vw;
-	left: 55vw;
-}
-@media (max-width: 62.49em) {
-.steps .step-3 .stepNumber {
-		bottom: 14vw;
-}
-}
-.steps .step-4 .stepNumber {
-	bottom: -14vw;
-	left: 35vw;
-}
-.steps .step-4 .stepText {
-	bottom: 10vw;
-	left: 55vw;
-	font-size: 3.64583vw;
-	line-height: 5.20833vw;
-}
-.steps .step-4 .stepPicture {
-	bottom: -2vw;
-	left: 10vw;
-}
-@media (max-width: 62.49em) {
-.steps .step-4 .stepNumber {
-		bottom: 14vw;
-}
-}
-.steps .step-5 .stepNumber {
-	bottom: -14vw;
-	left: 15vw;
-}
-.steps .step-5 .stepText {
-	bottom: 10vw;
-	left: 32vw;
-	font-size: 2.60417vw;
-	line-height: 3.125vw;
-}
-.steps .step-5 .stepPicture {
-	bottom: -9vw;
-	left: 43vw;
-	z-index: 21;
-}
-@media (max-width: 62.49em) {
-.steps .step-5 .stepNumber {
-		bottom: 14vw;
-}
-}
-.tikTopLogo {
-	width: 50vw;
-	display: inline-block;
-}
-</style><style>.title{
-margin-top: 1.620085419471969vw;
-margin-bottom: 1.620085419471969vw;
-margin-left: 1.6435332853379427vw;
-margin-right: 1.6435332853379427vw;
-padding-top: 1.0857590547761997vw;
-padding-bottom: 1.0857590547761997vw;
-padding-left: 1.196716271039408vw;
-padding-right: 1.196716271039408vw;
-border-radius: 0.1361916669966879vw;
-color: #c2baa8;
-border: none;
-font-size: 3.2618099205842004vw;
-}
+				}
+
+				.links .tikLink {
+						width: 150vw;
+				}
+		}
+
+		.links .tikLink {
+				margin: 1vw;
+				width: 8.54167vw;
+				height: 2.39583vw;
+				text-align: center;
+				font-family: Oswald-Light;
+				font-size: 1.4vw;
+				line-height: 2vw;
+				color: #6384FF;
+				border: 1px solid #6384FF;
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+				border-radius: 10px;
+		}
+
+		.links .tikLink a {
+				display: block;
+		}
+
+		@media (max-width: 39.99em) {
+				.links .tikLink {
+						width: 21.08437vw;
+						height: 7.1875vw;
+						border: 1px solid #FA00FF;
+						-webkit-box-sizing: border-box;
+						box-sizing: border-box;
+						border-radius: 1.5625vw;
+						font-size: 2.5vw;
+						line-height: 6.25vw;
+				}
+		}
+
+		.advert {
+				padding-top: 9.11458vw;
+				-ms-flex-pack: distribute;
+				justify-content: space-around;
+		}
+
+		.buttonGreen {
+				/* Group 50 */
+				background: #00FF00;
+				border-radius: 1.04167vw;
+				width: 22.08333vw;
+				height: 4.79167vw;
+				font-family: Oswald-Bold;
+				font-style: normal;
+				font-weight: bold;
+				font-size: 1.82292vw;
+				line-height: 5.20833vw;
+				/* or 286% */
+				text-align: center;
+				color: #000000;
+		}
+
+		.greenLine {
+				height: 4.16667vw;
+				position: relative;
+				font-family: Oswald-Regular;
+				font-size: 2.08333vw;
+				line-height: 3.125vw;
+				/* or 150% */
+				background: #00FF00;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-align: center;
+				-ms-flex-align: center;
+				align-items: center;
+				text-align: center;
+				text-transform: uppercase;
+				color: black;
+		}
+
+		.greenLine img {
+				max-width: 10.57292vw;
+				position: relative;
+				z-index: 30;
+		}
+
+		@media (max-width: 39.99em) {
+				.greenLine {
+						display: -webkit-box;
+						display: -ms-flexbox;
+						display: flex;
+						-webkit-box-pack: center;
+						-ms-flex-pack: center;
+						justify-content: center;
+						font-family: Oswald-bold;
+						height: 12.5vw;
+						text-align: center;
+						font-size: 3.75vw;
+				}
+
+				.greenLine span {
+						margin: 6vw;
+				}
+
+				.greenLine img {
+						-webkit-transform: scale(1.8);
+						transform: scale(1.8);
+				}
+		}
+
+		.advertText {
+				font-family: Oswald-Bold;
+				font-style: normal;
+				font-size: 5.20833vw;
+				line-height: 5.20833vw;
+				color: #FFFFFF;
+		}
+
+		.mainPicture img {
+				max-width: 89vw;
+		}
+
+		@media (min-width: 62.5em) {
+				.tikGadget {
+						display: none;
+				}
+		}
+
+		@media (min-width: 62.5em) {
+				.tikMobile {
+						display: none;
+				}
+		}
+
+		@media (max-width: 39.99em) {
+				.tikHideMobile {
+						display: none;
+				}
+		}
+
+		@media (max-width: 62.49em) {
+				.tikPc {
+						display: none;
+				}
+		}
+
+		.childrenPic {
+				background-image: url("/tiktoken/main-children.jpg");
+				height: 100vh;
+				position: relative;
+				z-index: 3;
+		}
+
+		.childrenPic .mobileChildrenText {
+				font-size: 3.125vw;
+				line-height: 3.38542vw;
+				text-align: center;
+				position: relative;
+		}
+
+		@media (max-width: 62.49em) {
+				.childrenPic .mobileChildrenText {
+						font-size: 12.5vw;
+						line-height: 11.71875vw;
+				}
+
+				.childrenPic .mobileChildrenText p {
+						padding-top: 35%;
+				}
+		}
+
+		.childrenPic .childrenPicturies {
+				position: absolute;
+				top: 0;
+				left: 8vw;
+				width: 77vw;
+				z-index: 2;
+		}
+
+		.maryProfile {
+				/* The new home for influencers! */
+				background: #F699BE;
+				position: relative;
+		}
+
+		@media (max-width: 62.49em) {
+				.maryProfile .maryImg img {
+						max-width: 82vw;
+				}
+		}
+
+		.maryProfile .profileEye {
+				position: relative;
+				-webkit-transform: translateY(-30%);
+				transform: translateY(-30%);
+				z-index: 30;
+				text-align: center;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				justify-content: center;
+		}
+
+		.maryProfile .profileEye img {
+				width: 9.21563vw;
+				max-width: 9.21563vw;
+				height: auto;
+		}
+
+		@media (max-width: 62.49em) {
+				.maryProfile .profileEye img {
+						width: 24vw;
+						max-width: 20vw;
+				}
+		}
+
+		.maryProfile img {
+				max-width: 51.14583vw;
+		}
+
+		.maryProfile h4,
+		.maryProfile h2 {
+				color: black;
+				font-family: Oswald-Bold;
+				font-style: normal;
+				font-size: 3.75vw;
+				line-height: 6.77083vw;
+				/* or 181% */
+				text-align: center;
+				text-transform: uppercase;
+				color: #FFFFFF;
+		}
+
+		.maryProfile .profile h2 {
+				font-size: 5.72917vw;
+				line-height: 6.77083vw;
+				color: #9C1FFF;
+		}
+
+		.steps .stepPicture img {
+				height: auto;
+				max-width: 40vw;
+		}
+
+		.steps .step div {
+				display: inline-block;
+		}
+
+		.steps .flexTick {
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				justify-content: center;
+		}
+
+		.steps .step {
+				background: -webkit-gradient(linear, left bottom, left top, from(#8066FF), to(rgba(255, 179, 181, 0)));
+				background: linear-gradient(0deg, #8066FF 0%, rgba(255, 179, 181, 0) 100%);
+				height: 75vh;
+				position: relative;
+		}
+
+		@media (max-width: 62.49em) {
+				.steps .step {
+						height: 30vh;
+						font-size: 4.6875vw;
+						line-height: 4.6875vw;
+				}
+		}
+
+		.steps .stepText {
+				text-align: left;
+				font-family: Oswald-Bold;
+				font-size: 3.64583vw;
+				line-height: 5.20833vw;
+				color: #57009C;
+				z-index: 1000;
+		}
+
+		.steps .stepNumber {
+				font-family: Oswald-Bold;
+				font-size: 39.0625vw;
+				color: white;
+				z-index: 999;
+		}
+
+		.steps .stepNumber,
+		.steps .stepPicture,
+		.steps .stepText {
+				display: inline-block;
+				position: absolute;
+		}
+
+		.steps .step-1 .stepNumber {
+				bottom: -14vw;
+				left: 40vw;
+		}
+
+		.steps .step-1 .stepText {
+				bottom: 3vw;
+				left: 26vw;
+		}
+
+		.steps .step-1 .stepPicture {
+				bottom: 0;
+				left: 45vw;
+		}
+
+		@media (max-width: 62.49em) {
+				.steps .step-1 .stepNumber {
+						bottom: 14vw;
+				}
+		}
+
+		.steps .step-2 .stepNumber {
+				bottom: -14vw;
+				left: 30vw;
+		}
+
+		.steps .step-2 .stepText {
+				bottom: 15vw;
+				left: 52vw;
+		}
+
+		.steps .step-2 .stepPicture {
+				bottom: -8vw;
+				left: 45vw;
+		}
+
+		@media (max-width: 62.49em) {
+				.steps .step-2 .stepNumber {
+						bottom: 14vw;
+				}
+		}
+
+		.steps .step-3 .stepNumber {
+				bottom: -14vw;
+				left: 20vw;
+		}
+
+		.steps .step-3 .stepText {
+				bottom: 10vw;
+				left: 40vw;
+		}
+
+		.steps .step-3 .stepPicture {
+				bottom: -8vw;
+				left: 55vw;
+		}
+
+		@media (max-width: 62.49em) {
+				.steps .step-3 .stepNumber {
+						bottom: 14vw;
+				}
+		}
+
+		.steps .step-4 .stepNumber {
+				bottom: -14vw;
+				left: 35vw;
+		}
+
+		.steps .step-4 .stepText {
+				bottom: 10vw;
+				left: 55vw;
+				font-size: 3.64583vw;
+				line-height: 5.20833vw;
+		}
+
+		.steps .step-4 .stepPicture {
+				bottom: -2vw;
+				left: 10vw;
+		}
+
+		@media (max-width: 62.49em) {
+				.steps .step-4 .stepNumber {
+						bottom: 14vw;
+				}
+		}
+
+		.steps .step-5 .stepNumber {
+				bottom: -14vw;
+				left: 15vw;
+		}
+
+		.steps .step-5 .stepText {
+				bottom: 10vw;
+				left: 32vw;
+				font-size: 2.60417vw;
+				line-height: 3.125vw;
+		}
+
+		.steps .step-5 .stepPicture {
+				bottom: -9vw;
+				left: 43vw;
+				z-index: 21;
+		}
+
+		@media (max-width: 62.49em) {
+				.steps .step-5 .stepNumber {
+						bottom: 14vw;
+				}
+		}
+
+		.tikTopLogo {
+				width: 50vw;
+				display: inline-block;
+		}
+		</style>
+		<style>
+		.title {
+				margin-top: 1.620085419471969vw;
+				margin-bottom: 1.620085419471969vw;
+				margin-left: 1.6435332853379427vw;
+				margin-right: 1.6435332853379427vw;
+				padding-top: 1.0857590547761997vw;
+				padding-bottom: 1.0857590547761997vw;
+				padding-left: 1.196716271039408vw;
+				padding-right: 1.196716271039408vw;
+				border-radius: 0.1361916669966879vw;
+				color: #c2baa8;
+				border: none;
+				font-size: 3.2618099205842004vw;
+		}
 
 
 
-.subTitle{
-margin-top: 1.3725357100882467vw;
-margin-bottom: 1.3725357100882467vw;
-margin-left: 1.7870482893383592vw;
-margin-right: 1.7870482893383592vw;
-padding-top: 1.0367868172495907vw;
-padding-bottom: 1.0367868172495907vw;
-padding-left: 1.255480711562463vw;
-padding-right: 1.255480711562463vw;
-border-radius: 0.14257925921612655vw;
-color: #c6bead;
-border: none;
-font-size: 1.9417336924336954vw;
-}
+		.subTitle {
+				margin-top: 1.3725357100882467vw;
+				margin-bottom: 1.3725357100882467vw;
+				margin-left: 1.7870482893383592vw;
+				margin-right: 1.7870482893383592vw;
+				padding-top: 1.0367868172495907vw;
+				padding-bottom: 1.0367868172495907vw;
+				padding-left: 1.255480711562463vw;
+				padding-right: 1.255480711562463vw;
+				border-radius: 0.14257925921612655vw;
+				color: #c6bead;
+				border: none;
+				font-size: 1.9417336924336954vw;
+		}
 
 
 
-.button{
-margin-top: 1.1687327853508085vw;
-margin-bottom: 1.1687327853508085vw;
-margin-left: 1.471442090620785vw;
-margin-right: 1.471442090620785vw;
-padding-top: 1.1782540599986175vw;
-padding-bottom: 1.1782540599986175vw;
-padding-left: 1.4457309673785481vw;
-padding-right: 1.4457309673785481vw;
-border-radius: 0.13482321677004852vw;
-color: #c2b9a7;
-cursor: pointer;
-font-size: 1.5697222529961958vw;
-border: 1px solid #cdb5da;
-}
+		.button {
+				margin-top: 1.1687327853508085vw;
+				margin-bottom: 1.1687327853508085vw;
+				margin-left: 1.471442090620785vw;
+				margin-right: 1.471442090620785vw;
+				padding-top: 1.1782540599986175vw;
+				padding-bottom: 1.1782540599986175vw;
+				padding-left: 1.4457309673785481vw;
+				padding-right: 1.4457309673785481vw;
+				border-radius: 0.13482321677004852vw;
+				color: #c2b9a7;
+				cursor: pointer;
+				font-size: 1.5697222529961958vw;
+				border: 1px solid #cdb5da;
+		}
 
 
 
-.wrapper{
-margin-top: 0.6240142944588157vw;
-margin-bottom: 0.6240142944588157vw;
-margin-left: 0.5017589565526015vw;
-margin-right: 0.5017589565526015vw;
-padding-top: 1.0198295034256042vw;
-padding-bottom: 1.0198295034256042vw;
-padding-left: 0.10121154565775475vw;
-padding-right: 0.10121154565775475vw;
-border-radius: 0.15429522999814738vw;
-color: #c3bba9;
-font-size: 1.0075472917791373vw;
-border: 1px solid #f0e9f4;
-}
+		.wrapper {
+				margin-top: 0.6240142944588157vw;
+				margin-bottom: 0.6240142944588157vw;
+				margin-left: 0.5017589565526015vw;
+				margin-right: 0.5017589565526015vw;
+				padding-top: 1.0198295034256042vw;
+				padding-bottom: 1.0198295034256042vw;
+				padding-left: 0.10121154565775475vw;
+				padding-right: 0.10121154565775475vw;
+				border-radius: 0.15429522999814738vw;
+				color: #c3bba9;
+				font-size: 1.0075472917791373vw;
+				border: 1px solid #f0e9f4;
+		}
 
 
 
-.inputText{
-margin-top: 1.741198653220177vw;
-margin-bottom: 1.741198653220177vw;
-margin-left: 1.3120760324894585vw;
-margin-right: 1.3120760324894585vw;
-padding-top: 1.0041550534277304vw;
-padding-bottom: 1.0041550534277304vw;
-padding-left: 1.0831943062976788vw;
-padding-right: 1.0831943062976788vw;
-border-radius: 0.17258951932510283vw;
-color: #c2baa8;
-font-size: 1.1747613031619146vw;
-border: 1px solid #bfa0cf;
-}
+		.inputText {
+				margin-top: 1.741198653220177vw;
+				margin-bottom: 1.741198653220177vw;
+				margin-left: 1.3120760324894585vw;
+				margin-right: 1.3120760324894585vw;
+				padding-top: 1.0041550534277304vw;
+				padding-bottom: 1.0041550534277304vw;
+				padding-left: 1.0831943062976788vw;
+				padding-right: 1.0831943062976788vw;
+				border-radius: 0.17258951932510283vw;
+				color: #c2baa8;
+				font-size: 1.1747613031619146vw;
+				border: 1px solid #bfa0cf;
+		}
 
 
 
-.card{
-margin-top: 1.4811840883706942vw;
-margin-bottom: 1.4811840883706942vw;
-margin-left: 1.4441559552042105vw;
-margin-right: 1.4441559552042105vw;
-padding-top: 1.144291088583708vw;
-padding-bottom: 1.144291088583708vw;
-padding-left: 1.5234115338835599vw;
-padding-right: 1.5234115338835599vw;
-border-radius: 0.1945560240385472vw;
-color: #c1b8a6;
-font-size: 1.1689373791907687vw;
-border: 1px solid #f9f7fb;
-}
+		.card {
+				margin-top: 1.4811840883706942vw;
+				margin-bottom: 1.4811840883706942vw;
+				margin-left: 1.4441559552042105vw;
+				margin-right: 1.4441559552042105vw;
+				padding-top: 1.144291088583708vw;
+				padding-bottom: 1.144291088583708vw;
+				padding-left: 1.5234115338835599vw;
+				padding-right: 1.5234115338835599vw;
+				border-radius: 0.1945560240385472vw;
+				color: #c1b8a6;
+				font-size: 1.1689373791907687vw;
+				border: 1px solid #f9f7fb;
+		}
 
 
 
-.colorBackground{
-margin-top: 0.5537819626834994vw;
-margin-bottom: 0.5537819626834994vw;
-margin-left: 0.2393630369727897vw;
-margin-right: 0.2393630369727897vw;
-padding-top: 0.503505046754539vw;
-padding-bottom: 0.503505046754539vw;
-padding-left: 0.3949153140169466vw;
-padding-right: 0.3949153140169466vw;
-border-radius: 0.1744742061526781vw;
-color: #bab09c;
-background: rgba(237,5,98,0.6545329699511186);
-font-size: 1.4195311063299698vw;
-border: 1px solid #c4a7d3;
-}
+		.colorBackground {
+				margin-top: 0.5537819626834994vw;
+				margin-bottom: 0.5537819626834994vw;
+				margin-left: 0.2393630369727897vw;
+				margin-right: 0.2393630369727897vw;
+				padding-top: 0.503505046754539vw;
+				padding-bottom: 0.503505046754539vw;
+				padding-left: 0.3949153140169466vw;
+				padding-right: 0.3949153140169466vw;
+				border-radius: 0.1744742061526781vw;
+				color: #bab09c;
+				background: rgba(237, 5, 98, 0.6545329699511186);
+				font-size: 1.4195311063299698vw;
+				border: 1px solid #c4a7d3;
+		}
 
 
 
-.click{
-margin-top: 1.265202306385857vw;
-margin-bottom: 1.265202306385857vw;
-margin-left: 0.868017667126705vw;
-margin-right: 0.868017667126705vw;
-padding-top: 2.475824810669942vw;
-padding-bottom: 2.475824810669942vw;
-padding-left: 1.5972813023443282vw;
-padding-right: 1.5972813023443282vw;
-border-radius: 0.11373267355707489vw;
-color: #c0b7a4;
-cursor: pointer;
-font-size: 1.1030067990729702vw;
-border: 1px solid #d6c3e1;
-}
+		.click {
+				margin-top: 1.265202306385857vw;
+				margin-bottom: 1.265202306385857vw;
+				margin-left: 0.868017667126705vw;
+				margin-right: 0.868017667126705vw;
+				padding-top: 2.475824810669942vw;
+				padding-bottom: 2.475824810669942vw;
+				padding-left: 1.5972813023443282vw;
+				padding-right: 1.5972813023443282vw;
+				border-radius: 0.11373267355707489vw;
+				color: #c0b7a4;
+				cursor: pointer;
+				font-size: 1.1030067990729702vw;
+				border: 1px solid #d6c3e1;
+		}
+		</style>
+		<script charset="utf-8" src="/15.8dff8533486747eb5b4b.hot-update.js" crossorigin="anonymous"></script>
+</head>
 
 
-
-</style></head>
-<body>
-
+	<body>
 		<div id="app"><div class="ticktoken"><div class="firstList"><div class="tiktokenHeader flexTick"><div class="logos flexTick"><div class="logo bounce"><img src="/tiktoken/main-logo.svg" class="tikTopLogo"><img src="" alt=""></div><div class="tagline">Home of the new<br class="tikHideMobile">influencer economy!</div></div><div class="links flexTick"><div class="tikLink bounce" style="color: rgb(250, 0, 255); border: 1px solid rgb(250, 0, 255);"><a>instagram</a></div><div class="tikLink bounce" style="color: rgb(0, 255, 0); border: 1px solid rgb(0, 255, 0);"><a>facebook</a></div><div class="tikLink bounce" style="color: rgb(30, 255, 197); border: 1px solid rgb(30, 255, 197);"><a>twitter</a></div><div class="tikLink bounce" style="color: rgb(99, 132, 255); border: 1px solid rgb(99, 132, 255);"><a>telegram</a></div></div></div><div class="advert flexTick"><div class="buttonGreen"><span class="bounce">LAUNCH OCTOBER 2020</span></div><div class="advertText">
 				Do the <span class="pink bounce">Tik</span> — get the <span class="pink bounce">Tokens!</span></div></div><div class="mainPicture"><img src="/tiktoken/main.png" alt=""><div class="picFooter"></div></div><div class="greenLine"><img src="/tiktoken/main-green-star.svg" alt=""><span>The more the tik — the more the token</span><img src="/tiktoken/main-green-star.svg" alt=""><span class="tikPc">The more the token — the more the earnin</span></div><div class="childrenPic"><div class="tiktokenHeader flexTick tikPc"><img src="/tiktoken/main-children-pics.svg" alt="" class="childrenPicturies"><div class="logos flexTick"><div class="logo bounce"><img src="/tiktoken/main-logo.svg" class="tikTopLogo"><img src="" alt=""></div><div class="tagline">Home of the new<br>influencer economy!</div></div></div><div class="mobileChildrenText tikGadget"><p>TikToken is the<br> new influencer<br> reward system.<br>Do a lil' tik,<br>get a lil' token!</p></div></div></div><div class="maryProfile"><div class="profile"><div class="profileEye"><img src="/tiktoken/main-eye.svg" alt="" class="bounce"></div><h4>The new home</h4><h2>For influencers!</h2><div class="maryImg"><img src="/tiktoken/main-mary.png"></div></div><div class="steps"><div class="flex step invert step-1"><div class="stepText bounce">Mary wants<br>to become<br> an influencer</div><div class="stepNumber bounce">1</div><div class="stepPicture"><img src="/tiktoken/star-and-hearts.png"></div></div><div class="flex step step-2"><div class="stepText bounce">Mary creates<br>a TikToken account<br>and wallet</div><div class="stepNumber bounce">2</div><div class="stepPicture"><img src="/tiktoken/Technologies.png"></div></div><div class="flex step step-3"><div class="stepText bounce">Mary attaches her<br> TikToken username<br>to her socials</div><div class="stepNumber bounce">3</div><div class="stepPicture"><img src="/tiktoken/Pade-Under-Construction.png"></div></div><div class="flex step step-4"><div class="stepText bounce">Mary hashtag<br> #TikToken<br>in her posts</div><div class="stepNumber bounce">4</div><div class="stepPicture"><img src="/tiktoken/Design.png"></div></div><div class="flex step step-5"><div class="stepText bounce">Fans pay Mary<br>by sending TikTokens<br>to her @username<br>via the TikToken app</div><div class="stepNumber bounce">5</div><div class="stepPicture"><img src="/tiktoken/hearts.png"></div></div></div></div><div class="tikBlack"><div class="greenBack"></div><div class="subscribeForm"><div class="subscribeWrapper"><div class="subscribe"><h1>Subscribe now<br> and get 5% bonus</h1><div class="tikForm"><input placeholder="Enter e-mail"><button>Send</button></div></div><div class="smile"><img src="/tiktoken/main-smile.svg" alt="" class="bounce"></div></div></div></div><div class="tikFooter"><div class="greenBack"></div><div class="nowness bounce">Made for NOW</div><img src="/tiktoken/main-logo-black.svg" class="logo"></div></div></div>
-
-
-</body>
-<body>
+		<!-- built files will be auto injected -->
 	
+
 </body>
+
 </html>
