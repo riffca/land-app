@@ -48,7 +48,7 @@ nav {
 }
 .dropdown:hover {
 	background: #2980b9;
-	cursor: pointer;
+	cursor: url('/tiktoken/main-cursor.png');
 }
 .dropdown:hover .dropdown_menu li {
 	display: block;
@@ -56,7 +56,6 @@ nav {
 .dropdown_menu {
 	position: absolute;
 	top: 100%;
-	left: 0;
 	width: 100%;
 	perspective: 1000px;
 	z-index: -1;
